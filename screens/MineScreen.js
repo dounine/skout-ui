@@ -1,16 +1,17 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Image} from 'react-native';
+import Mine from '../components/mine/Mine';
 
 export default class MineScreen extends Component{
 
     static navigationOptions = {
         header: null,
-        title:'我的',
-        tabBarIcon: ({focused}) => {
+        tabBarLabel:'我的',
+        tabBarIcon: ({tintColor}) => {
             return (
                 <Image
                     source={require('../icons/mine.png')}
-                    style={styles.icon}
+                    style={[styles.icon,{tintColor:tintColor}]}
                 />
             )
         }
@@ -19,7 +20,7 @@ export default class MineScreen extends Component{
     render(){
         return (
             <View style={styles.container}>
-                <Text>this is mine page</Text>
+                <Mine/>
             </View>
         )
     }
@@ -28,8 +29,8 @@ export default class MineScreen extends Component{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
-        alignItems:'center'
+        // justifyContent:'center',
+        // alignItems:'center'
     },
     icon:{
         width:24,

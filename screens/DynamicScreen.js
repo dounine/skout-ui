@@ -5,12 +5,12 @@ export default class DynamicScreen extends Component{
 
     static navigationOptions = {
         header: null,
-        title:'动态',
-        tabBarIcon: ({focused}) => {
+        tabBarLabel:'动态',
+        tabBarIcon: ({tintColor}) => {
             return (
                 <Image
                     source={require('../icons/dynamic.png')}
-                    style={styles.icon}
+                    style={[styles.icon,{tintColor:tintColor}]}
                 />
             )
         }

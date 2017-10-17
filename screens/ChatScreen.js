@@ -5,12 +5,12 @@ export default class ChatScreen extends Component{
 
     static navigationOptions = {
         header: null,
-        title:'聊天',
-        tabBarIcon: ({focused}) => {
+        tabBarLabel:'聊天',
+        tabBarIcon: ({tintColor}) => {
             return (
                 <Image
                     source={require('../icons/interest.png')}
-                    style={styles.icon}
+                    style={[styles.icon,{tintColor:tintColor}]}
                 />
             )
         }

@@ -5,12 +5,12 @@ export default class InterestScreen extends Component{
 
     static navigationOptions = {
         header: null,
-        title:'摇一摇',
-        tabBarIcon: ({focused}) => {
+        tabBarLabel:'摇一摇',
+        tabBarIcon: ({tintColor}) => {
             return (
                 <Image
                     source={require('../icons/interest.png')}
-                    style={styles.icon}
+                    style={[styles.icon,{tintColor:tintColor}]}
                 />
             )
         }

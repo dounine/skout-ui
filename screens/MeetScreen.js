@@ -5,12 +5,12 @@ export default class MeetScreen extends Component{
 
     static navigationOptions = {
         header: null,
-        title:'遇见',
-        tabBarIcon: ({focused}) => {
+        tabBarLabel:'遇见',
+        tabBarIcon: ({tintColor}) => {
             return (
                 <Image
                     source={require('../icons/meet.png')}
-                    style={styles.icon}
+                    style={[styles.icon,{tintColor:tintColor}]}
                 />
             )
         }

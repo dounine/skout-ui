@@ -24,6 +24,7 @@ export default TabNavigator(
         },
     },
     {
+        initialRouteName:'Mine',
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
         animationEnabled: false,
