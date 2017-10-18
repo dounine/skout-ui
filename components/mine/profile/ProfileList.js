@@ -11,6 +11,9 @@ import Travel from './funs/Travel';
 import Shake from './funs/Shake';
 import FeatureMe from './funs/FeatureMe';
 import FavoritedMe from './funs/FavoritedMe';
+import Settings from './funs/settings/Settings';
+import Bugs from './funs/settings/Bugs';
+import Help from './funs/settings/Help';
 
 
 export default class ProfileList extends Component {
@@ -94,13 +97,6 @@ export default class ProfileList extends Component {
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
-                                <Travel/>
-                            </View>
-                        </TouchableHighlight>
-                        <TouchableHighlight
-                            onPress={()=>this.onPress('Info')}
-                        >
-                            <View>
                                 <FeatureMe/>
                             </View>
                         </TouchableHighlight>
@@ -120,23 +116,26 @@ export default class ProfileList extends Component {
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
-                                <Shake/>
+                                <Settings/>
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
-                                <Shake/>
+                                <Bugs/>
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
-                                <Shake/>
+                                <Help/>
                             </View>
                         </TouchableHighlight>
+                    </View>
+                    <View style={[styles.fun,{height:30}]}>
+                        {/*<Text style={styles.funText}>设置</Text>*/}
                     </View>
                 </View>
             </ScrollView>

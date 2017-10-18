@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
+
 import {StyleSheet, Image, TouchableHighlight, View, Text} from 'react-native';
 import {OpenMore} from '../../../commons/Commons';
-
+import FunStyles from './Consts';
 
 export default class Friends extends Component {
 
     render() {
-
         return (
             <View
                 style={styles.container}
@@ -30,31 +30,6 @@ export default class Friends extends Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        height: 50,
-        flexDirection: 'row',
-    },
-    containerLeft:{
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    containerRight: {
-        flex: 1,
-        flexDirection: 'row',
-        borderBottomColor: '#E0E0E0',
-        borderBottomWidth: 1,
-        alignItems: 'center',
-        marginLeft:10,
-    },
-    funName: {
-        flex: 1
-    },
-    icon: {
-        width: 30,
-        height: 30,
-        backgroundColor: '#4884F4',
-        borderRadius: 6
-    }
-})
+const funStyles = FunStyles.clone();
+funStyles.icon.backgroundColor = '#4884F4';
+const styles = StyleSheet.create(funStyles);
