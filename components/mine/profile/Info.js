@@ -35,7 +35,7 @@ export default class Info extends Component {
                     </View>
                 </View>
 
-                <View style={[styles.baseInfoGroup,{borderBottomWidth:0}]}>
+                <View style={[styles.baseInfoGroup,{borderBottomWidth:0,paddingLeft:0}]}>
                     <TouchableHighlight
                         onPress={() => this.genderPress('AboutMeEditor')}
                     >

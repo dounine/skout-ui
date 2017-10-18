@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Picker,Button,Text} from 'react-native';
+import {Picker,View,Button,Text,TextInput} from 'react-native';
 
 class Save extends Component {
 
@@ -28,19 +28,27 @@ export default class AboutMe extends Component {
     constructor() {
         super()
         this.state = {
-            language: '男'
+            text: '我是人'
         }
     }
 
     render() {
         return (
-            <Picker
-                mode={"dropdown"}
-                selectedValue={this.state.language}
-                onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-                <Picker.Item label="男" value="man"/>
-                <Picker.Item label="女" value="woman"/>
-            </Picker>
+        <View style={{
+            backgroundColor: '#FFFFFF',
+            padding:10,
+            flex:1,
+            borderBottomColor: '#000000',
+            borderBottomWidth: 0 }}
+        >
+            <TextInput
+                autoFocus={true}
+                onChangeText={(t)=>this.setState({text:t})}
+                multiline = {true}
+                value={this.state.text}
+            />
+        </View>
+
         )
     }
 }
