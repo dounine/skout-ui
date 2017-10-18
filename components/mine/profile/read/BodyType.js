@@ -4,13 +4,17 @@ import {OpenMore} from '../../../commons/Commons';
 
 export default class BodyType extends Component{
 
+    static navigationOptions = {
+        title:'身体类型'
+    }
+
     render(){
         return(
             <View
                 style={styles.headerRow}
             >
                 <View style={styles.genderLeft}>
-                    <Text>身体</Text>
+                    <Text>身体类型</Text>
                 </View>
                 <View style={styles.genderRight}>
                     <Text style={styles.genderText}>性感</Text>

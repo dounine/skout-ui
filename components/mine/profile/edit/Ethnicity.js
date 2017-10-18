@@ -3,6 +3,7 @@ import {TouchableHighlight, Image, ScrollView, View, Button, StyleSheet, Text} f
 
 class Save extends React.Component {
 
+
     save = () => {
         alert()
     }
@@ -22,7 +23,8 @@ class Save extends React.Component {
 export default class Ethnicity extends React.Component {
 
     static navigationOptions = {
-        headerRight: (<Save/>)
+        headerRight: (<Save/>),
+        title: "种族"
     }
 
     select(item) {
@@ -31,7 +33,8 @@ export default class Ethnicity extends React.Component {
         })
         item.select = !item.select
         this.setState({})
-    };
+    }
+    ;
 
     constructor() {
         super();
@@ -83,13 +86,13 @@ export default class Ethnicity extends React.Component {
 const styles = StyleSheet.create({
     container: {
         paddingTop: 10,
-        backgroundColor:'#F6F6F6'
+        backgroundColor: '#F6F6F6'
     },
     listBox: {
-        borderTopWidth:1,
-        borderTopColor:'#E0E0E0',
-        borderBottomWidth:1,
-        borderBottomColor:'#E0E0E0',
+        borderTopWidth: 1,
+        borderTopColor: '#E0E0E0',
+        borderBottomWidth: 1,
+        borderBottomColor: '#E0E0E0',
         backgroundColor: '#FFFFFF',
     },
     text: {

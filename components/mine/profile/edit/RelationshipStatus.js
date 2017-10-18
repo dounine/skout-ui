@@ -22,7 +22,8 @@ class Save extends React.Component {
 export default class RelationshipStatus extends React.Component {
 
     static navigationOptions = {
-        headerRight: (<Save/>)
+        headerRight: (<Save/>),
+        title:"感情状态"
     }
 
     select(item) {

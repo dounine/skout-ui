@@ -22,7 +22,8 @@ class Save extends React.Component {
 export default class Religion extends React.Component {
 
     static navigationOptions = {
-        headerRight: (<Save/>)
+        headerRight: (<Save/>),
+        title:"宗教"
     }
 
     select(item) {

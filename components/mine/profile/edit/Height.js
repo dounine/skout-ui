@@ -23,7 +23,8 @@ class Save extends Component {
 export default class Height extends Component {
 
     static navigationOptions = {
-        headerRight:(<Save/>)
+        headerRight:(<Save/>),
+        title:"身高"
     }
 
 

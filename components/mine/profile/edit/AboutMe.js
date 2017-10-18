@@ -22,8 +22,9 @@ class Save extends Component {
 export default class AboutMe extends Component {
 
     static navigationOptions = {
-        headerRight:(<Save/>)
-    }
+        headerRight:(<Save/>),
+        title:'关于我'
+    };
 
     constructor() {
         super()

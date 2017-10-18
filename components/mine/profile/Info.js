@@ -10,6 +10,7 @@ export default class Info extends Component {
 
     static navigationOptions = {
         // header:null
+        title:"信息"
     };
 
     _showTimePicker = () =>{
@@ -171,6 +172,13 @@ export default class Info extends Component {
                     >
                         <View>
                             <RelationshipStatus/>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => this.genderPress('BodyTypeEditor')}
+                    >
+                        <View>
+                            <BodyType/>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight

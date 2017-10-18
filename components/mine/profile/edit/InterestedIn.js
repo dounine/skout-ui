@@ -22,7 +22,8 @@ class Save extends Component {
 export default class InterestedIn extends Component {
 
     static navigationOptions = {
-        headerRight:(<Save/>)
+        headerRight:(<Save/>),
+        title:"感兴趣的人"
     }
 
     constructor() {

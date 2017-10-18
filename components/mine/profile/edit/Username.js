@@ -22,7 +22,8 @@ class Save extends Component {
 export default class Username extends Component {
 
     static navigationOptions = {
-        headerRight: (<Save/>)
+        headerRight: (<Save/>),
+        title:"用户名"
     }
 
     constructor() {

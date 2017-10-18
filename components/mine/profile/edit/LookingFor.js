@@ -22,7 +22,8 @@ class Save extends React.Component {
 export default class LookingFor extends React.Component {
 
     static navigationOptions = {
-        headerRight: (<Save/>)
+        headerRight: (<Save/>),
+        title:"寻找"
     }
 
     select(item) {

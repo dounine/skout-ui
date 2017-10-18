@@ -10,13 +10,13 @@ export default class AboutMe extends Component {
                 style={styles.headerRow}
             >
                 <View style={styles.genderLeft}>
-                    <View>
-                        <Text style={styles.aboutMeText}>关于我:</Text>
-                    </View>
+                    {/*<View>*/}
+                        {/*<Text style={styles.aboutMeText}>关于我:</Text>*/}
+                    {/*</View>*/}
                     <View>
                         <Text
-                            numberOfLines={1}
-                            style={styles.aboutMeContentText}>你是一个好人，哈哈。</Text>
+                            numberOfLines={2}
+                            style={styles.aboutMeContentText}>你是一个好人，哈哈,你是一个好人，哈哈,你是一个好人，哈哈,你是一个好人，哈哈,你是一个好人，哈哈,你是一个好人，哈哈。</Text>
                     </View>
                 </View>
                 <View style={styles.genderRight}>
@@ -31,10 +31,9 @@ const styles = StyleSheet.create({
     headerRow: {
         flexDirection: 'row',
         backgroundColor: '#FFFFFF',
-        height: 60,
+        height: 54,
         borderBottomColor: '#E0E0E0',
         borderBottomWidth: 1,
-        // alignItems: 'center',
     },
     genderLeft: {
         flex: 1
@@ -54,10 +53,10 @@ const styles = StyleSheet.create({
     },
     aboutMeContentText: {
         fontSize:16,
-        marginTop:4,
+        marginTop:6,
         marginLeft:10,
         marginRight:10,
-
+        color:'#585858'
         // margin: 10
     }
 })

@@ -22,7 +22,8 @@ class Save extends React.Component {
 export default class HasChildren extends React.Component {
 
     static navigationOptions = {
-        headerRight: (<Save/>)
+        headerRight: (<Save/>),
+        title:"是否有孩子"
     }
 
     select(item) {

@@ -22,7 +22,8 @@ class Save extends Component {
 export default class SkoutID extends Component {
 
     static navigationOptions = {
-        headerRight: (<Save/>)
+        headerRight: (<Save/>),
+        title:"SkoutID"
     }
 
     constructor() {
