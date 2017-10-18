@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import HeaderImage from './header/HeaderImage';
 import {OpenMore} from '../../commons/Commons';
-import Gender from './Gender';
-import SkoutID from './SkoutID';
+import Gender from './read/Gender';
+import SkoutID from './read/SkoutID';
 
 export default class Info extends Component {
 
     static navigationOptions = {
         // header:null
+    };
+
+    genderPress = (name) => {
+        this.props.navigation.navigate(name)
     };
 
 
@@ -30,12 +34,25 @@ export default class Info extends Component {
                         <OpenMore/>
                     </View>
                 </View>
-                <View style={{marginLeft:14}}>
+                <View style={{marginLeft: 14}}>
                     <View>
-                        <Gender/>
+                        <TouchableHighlight
+                            onPress={() => this.genderPress('GenderEditor')}
+                        >
+                            <View>
+                                <Gender/>
+                            </View>
+                        </TouchableHighlight>
                     </View>
+
                     <View>
-                        <SkoutID/>
+                        <TouchableHighlight
+                            onPress={() => this.genderPress('SkoutIDEditor')}
+                        >
+                            <View>
+                                <SkoutID/>
+                            </View>
+                        </TouchableHighlight>
                     </View>
                 </View>
 

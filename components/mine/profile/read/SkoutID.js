@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
-import {OpenMore} from '../../commons/Commons';
+import {OpenMore} from '../../../commons/Commons';
 
 export default class SkoutID extends Component{
 

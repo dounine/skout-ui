@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import Profile from './Profile';
-import Gender from './Gender';
+import Gender from './read/Gender';
 import Friends from './funs/Friends';
 import Groups from './funs/Groups';
 import Translate from './funs/Translate';
@@ -14,13 +14,13 @@ import FavoritedMe from './funs/FavoritedMe';
 import Settings from './funs/settings/Settings';
 import Bugs from './funs/settings/Bugs';
 import Help from './funs/settings/Help';
+import LogOut from './funs/LogOut';
 
 
 export default class ProfileList extends Component {
 
     static navigationOptions = {
         // headfer:null
-        // title:'我的',
         tabBarLabel: '我的'
     };
 
@@ -136,6 +136,9 @@ export default class ProfileList extends Component {
                     </View>
                     <View style={[styles.fun,{height:30}]}>
                         {/*<Text style={styles.funText}>设置</Text>*/}
+                    </View>
+                    <View>
+                        <LogOut/>
                     </View>
                 </View>
             </ScrollView>

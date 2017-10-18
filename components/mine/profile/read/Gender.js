@@ -1,8 +1,15 @@
 import React, {Component} from 'react';
-import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
-import {OpenMore} from '../../commons/Commons';
+import {TouchableHighlight,Picker, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
+import {OpenMore} from '../../../commons/Commons';
 
 export default class Gender extends Component{
+
+    constructor(){
+        super();
+        this.state = {
+            language:'Java'
+        }
+    }
 
     render(){
         return(
