@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
-import {TouchableHighlight,Picker, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
+import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import {OpenMore} from '../../../commons/Commons';
 
-export default class Gender extends Component{
-
-    constructor(){
-        super();
-        this.state = {
-            language:'Java'
-        }
-    }
+export default class Smoking extends Component{
 
     render(){
         return(
@@ -17,10 +10,10 @@ export default class Gender extends Component{
                 style={styles.headerRow}
             >
                 <View style={styles.genderLeft}>
-                    <Text>性别</Text>
+                    <Text>吸烟</Text>
                 </View>
                 <View style={styles.genderRight}>
-                    <Text style={styles.genderText}>男</Text>
+                    <Text style={styles.genderText}>从来没有</Text>
                     <OpenMore/>
                 </View>
             </View>

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Picker,Button,Text} from 'react-native';
 
-
 class Save extends Component {
 
     save = () =>{
@@ -19,7 +18,8 @@ class Save extends Component {
     }
 }
 
-export default class GenderPicker extends Component {
+
+export default class AboutMe extends Component {
 
     static navigationOptions = {
         headerRight:(<Save/>)
@@ -44,3 +44,4 @@ export default class GenderPicker extends Component {
         )
     }
 }
+

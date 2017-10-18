@@ -3,8 +3,7 @@ import {ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native'
 import {StackNavigator} from 'react-navigation';
 import ProfileList from './profile/ProfileList';
 import Info from './profile/Info';
-import GenderEditor from './profile/edit/GenderPicker';
-import SkoutIDEditor from './profile/edit/SkoutID';
+import {AboutMe,BodyType,Education,Ethnicity,Gender,HasChildren,Height,InterestedIn,Interests,LookingFor,RelationshipStatus,Religion,SkoutID,Smoking,Username} from './profile/edit/Editors';
 
 const MineNaviator = StackNavigator(
     {
@@ -14,12 +13,51 @@ const MineNaviator = StackNavigator(
         Info: {
             screen: Info
         },
+        UsernameEditor:{
+            screen:Username
+        },
         GenderEditor: {
-            screen: GenderEditor
+            screen: Gender
         },
         SkoutIDEditor: {
-            screen: SkoutIDEditor
-        }
+            screen: SkoutID
+        },
+        InterestedInEditor: {
+            screen: InterestedIn
+        },
+        LookingForEditor: {
+            screen: LookingFor
+        },
+        RelationshipStatusEditor: {
+            screen: RelationshipStatus
+        },
+        InterestsEditor: {
+            screen: Interests
+        },
+        EthnicityEditor: {
+            screen: Ethnicity
+        },
+        BodyTypeEditor: {
+            screen: BodyType
+        },
+        HeightEditor: {
+            screen: Height
+        },
+        ReligionEditor: {
+            screen: Religion
+        },
+        HasChildrenEditor: {
+            screen: HasChildren
+        },
+        EducationEditor: {
+            screen: Education
+        },
+        SmokingEditor: {
+            screen: Smoking
+        },
+        AboutMeEditor: {
+            screen: AboutMe
+        },
     },
     {
         initialRouteName:'ProfileList'

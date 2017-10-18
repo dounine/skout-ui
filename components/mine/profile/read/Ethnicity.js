@@ -1,15 +1,8 @@
 import React, {Component} from 'react';
-import {TouchableHighlight,Picker, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
+import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import {OpenMore} from '../../../commons/Commons';
 
-export default class Gender extends Component{
-
-    constructor(){
-        super();
-        this.state = {
-            language:'Java'
-        }
-    }
+export default class Ethnicity extends Component{
 
     render(){
         return(
@@ -17,10 +10,10 @@ export default class Gender extends Component{
                 style={styles.headerRow}
             >
                 <View style={styles.genderLeft}>
-                    <Text>性别</Text>
+                    <Text>种族</Text>
                 </View>
                 <View style={styles.genderRight}>
-                    <Text style={styles.genderText}>男</Text>
+                    <Text style={styles.genderText}>汉族</Text>
                     <OpenMore/>
                 </View>
             </View>
@@ -34,7 +27,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         height: 50,
         borderBottomColor: '#E0E0E0',
-        borderBottomWidth: 0,
+        borderBottomWidth: 1,
         alignItems: 'center',
     },
     genderLeft:{
