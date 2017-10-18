@@ -3,6 +3,7 @@ import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text}
 import HeaderImage from './header/HeaderImage';
 import {OpenMore} from '../../commons/Commons';
 import {AboutMe,BodyType,Education,Ethnicity,Gender,HasChildren,Height,InterestedIn,Interests,LookingFor,RelationshipStatus,Religion,SkoutID,Smoking,Username} from './read/Readers';
+import Picker from 'react-native-picker';
 
 
 export default class Info extends Component {
@@ -11,8 +12,88 @@ export default class Info extends Component {
         // header:null
     };
 
+    _showTimePicker = () =>{
+        let data = [],data1=[];
+        for(var i=3;i<=8;i++){
+            data.push(i);
+        }
+        for(var i=0;i<=11;i++){
+            data1.push(i);
+        }
+        let pickerData = []
+        pickerData.push(data)
+        pickerData.push(data1)
+        Picker.init({
+            pickerData,
+            pickerConfirmBtnText:'确认',
+            pickerCancelBtnText:'取消',
+            pickerTitleText:'选择身高',
+            selectedValue: [[3],[0]],
+            onPickerConfirm: data => {
+                console.log(data);
+            },
+            onPickerCancel: data => {
+                console.log(data);
+            },
+            onPickerSelect: data => {
+                console.log(data);
+            }
+        });
+        Picker.show();
+    };
+
+    _showInterestedPicker = () =>{
+        let data = ["女人","男人","女人跟男人"];
+        Picker.init({
+            pickerData:data,
+            pickerConfirmBtnText:'确认',
+            pickerCancelBtnText:'取消',
+            pickerTitleText:'选择对象',
+            selectedValue: ['女人'],
+            onPickerConfirm: data => {
+                console.log(data);
+            },
+            onPickerCancel: data => {
+                console.log(data);
+            },
+            onPickerSelect: data => {
+                console.log(data);
+            }
+        });
+        Picker.show();
+    };
+
+    _showGenderPicker = () =>{
+        let data = ["女","男"];
+        Picker.init({
+            pickerData:data,
+            pickerConfirmBtnText:'确认',
+            pickerCancelBtnText:'取消',
+            pickerTitleText:'选择性别',
+            selectedValue: ['女'],
+            onPickerConfirm: data => {
+                console.log(data);
+            },
+            onPickerCancel: data => {
+                console.log(data);
+            },
+            onPickerSelect: data => {
+                console.log(data);
+            }
+        });
+        Picker.show();
+    }
+
     genderPress = (name) => {
-        this.props.navigation.navigate(name)
+        if(name==='HeightEditor'){
+            this._showTimePicker()
+        }else if(name==='InterestedInEditor'){
+            this._showInterestedPicker()
+        }else if(name==='GenderEditor'){
+            this._showGenderPicker()
+        }else{
+            this.props.navigation.navigate(name)
+        }
     };
 
 
@@ -93,6 +174,13 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        onPress={() => this.genderPress('HeightEditor')}
+                    >
+                        <View>
+                            <Height/>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight
                         onPress={() => this.genderPress('InterestsEditor')}
                     >
                         <View>
@@ -104,6 +192,20 @@ export default class Info extends Component {
                     >
                         <View>
                             <Ethnicity/>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => this.genderPress('ReligionEditor')}
+                    >
+                        <View>
+                            <Religion/>
+                        </View>
+                    </TouchableHighlight>
+                    <TouchableHighlight
+                        onPress={() => this.genderPress('EducationEditor')}
+                    >
+                        <View>
+                            <Education/>
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight

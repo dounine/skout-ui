@@ -14,7 +14,7 @@ export default class Height extends Component{
                 </View>
                 <View style={styles.genderRight}>
                     <Text style={styles.genderText}>170cm</Text>
-                    <OpenMore/>
+                    {/*<OpenMore/>*/}
                 </View>
             </View>
         )
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
     },
     genderText:{
+        marginRight:24,
         color:'#989898',
     }
 })

@@ -21,7 +21,7 @@ export default class Gender extends Component{
                 </View>
                 <View style={styles.genderRight}>
                     <Text style={styles.genderText}>男</Text>
-                    <OpenMore/>
+                    {/*<OpenMore/>*/}
                 </View>
             </View>
         )
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
     },
     genderText:{
+        marginRight:24,
         color:'#989898',
     }
 })

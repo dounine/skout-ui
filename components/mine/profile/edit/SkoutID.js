@@ -34,7 +34,9 @@ export default class SkoutID extends Component {
 
     render() {
         return (
-            <ScrollView>
+            <ScrollView
+                style={{backgroundColor:'#F6F6F6'}}
+            >
                 <View style={{marginTop:40}}>
                     <TextInput
                         style={{height: 40,

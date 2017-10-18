@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
-import {Picker,Button,Text} from 'react-native';
+import {ScrollView, View, Button, Text, TextInput} from 'react-native';
 
 class Save extends Component {
 
-    save = () =>{
+    save = () => {
         alert()
     }
 
     render() {
         return (
+
             <Button
                 onPress={this.save}
                 title={"保存"}>
@@ -21,27 +22,44 @@ class Save extends Component {
 export default class Username extends Component {
 
     static navigationOptions = {
-        headerRight:(<Save/>)
+        headerRight: (<Save/>)
     }
 
     constructor() {
         super()
         this.state = {
-            language: '男'
+            text: 'Lake isme'
         }
     }
 
     render() {
         return (
-            <Picker
-                mode={"dropdown"}
-                selectedValue={this.state.language}
-                onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-                <Picker.Item label="男" value="man"/>
-                <Picker.Item label="女" value="woman"/>
-            </Picker>
+            <ScrollView
+                style={{backgroundColor:'#F6F6F6'}}
+            >
+                <View style={{marginTop:40}}>
+                    <TextInput
+                        style={{height: 40,
+                            borderColor: '#DFDFDF',
+                            backgroundColor:'#FFFFFF',
+                            paddingLeft:10,
+                            borderTopWidth: 1,
+                            borderBottomWidth:1
+                        }}
+                        autoFocus={true}
+                        onChangeText={(text) => this.setState({text})}
+                        value={this.state.text}
+                    />
+                </View>
+                <View style={{marginTop:40,padding:10}}>
+                    <Text style={{color:'#989898'}}>
+                        创建一个Skout名字，这样就可以让你的朋友跟你聊天的时候就知道你叫什么了.
+                    </Text>
+                </View>
+            </ScrollView>
         )
     }
 }
+
 
 

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import {Picker,Button,Text} from 'react-native';
+import {TouchableHighlight,Button,Text} from 'react-native';
+import Picker from 'react-native-picker';
 
 class Save extends Component {
 
@@ -25,6 +26,8 @@ export default class Height extends Component {
         headerRight:(<Save/>)
     }
 
+
+
     constructor() {
         super()
         this.state = {
@@ -34,13 +37,9 @@ export default class Height extends Component {
 
     render() {
         return (
-            <Picker
-                mode={"dropdown"}
-                selectedValue={this.state.language}
-                onValueChange={(itemValue, itemIndex) => this.setState({language: itemValue})}>
-                <Picker.Item label="男" value="man"/>
-                <Picker.Item label="女" value="woman"/>
-            </Picker>
+            <TouchableHighlight underlayColor='#fff' onPress={this._showTimePicker.bind(this)}>
+                <Text>hello</Text>
+            </TouchableHighlight>
         )
     }
 }
