@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableHighlight, Image, ScrollView, View, Button, StyleSheet, Text} from 'react-native';
+import Svg from '../../../../icons/Svg';
 
 class Save extends React.Component {
 
@@ -33,8 +34,12 @@ export default class Interests extends React.Component {
 
     constructor() {
         super();
+        const value = [{name: "电影"}, {name: "看书"}, {name: "电视"}, {name: "音乐"}, {name: "家人"}, {name: "宠物"}, {name: "喝"}, {name: "餐馆"}, {name: "购物"},{name:"看体育"},{name:"体育"},{name:"酒吧"},{name:"跳舞"},{name:"游戏"}]
+        value.forEach(function (item) {
+            item.select = false;
+        })
         this.state = {
-            values: [{name: "电影"}, {name: "看书"}, {name: "电视"}, {name: "音乐"}, {name: "家人"}, {name: "宠物"}, {name: "喝"}, {name: "餐馆"}, {name: "购物"},{name:"看体育"},{name:"体育"},{name:"酒吧"},{name:"跳舞"},{name:"游戏"}]
+            values: value
         };
     }
 
@@ -61,12 +66,7 @@ export default class Interests extends React.Component {
                                         <View style={styles.text}>
                                             <Text>{item.name}</Text>
                                         </View>
-                                        <View>
-                                            <Image
-                                                source={require('../../../../icons/select.png')}
-                                                style={item.select ? styles.select : styles.selectNone}
-                                            />
-                                        </View>
+                                        <Svg display={item.select} icon="select" size="20" style={styles.select}/>
                                     </View>
                                 </TouchableHighlight>
                             )
@@ -104,14 +104,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     select: {
-        width: 20,
-        height: 20,
         marginRight: 10,
     },
-    selectNone: {
-        width: 20,
-        height: 20,
-        marginRight: 10,
-        display: 'none'
-    }
 })

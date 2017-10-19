@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableHighlight, Image, ScrollView, View, Button, StyleSheet, Text} from 'react-native';
+import Svg from '../../../../icons/Svg';
 
 class Save extends React.Component {
 
@@ -36,8 +37,12 @@ export default class Education extends React.Component {
 
     constructor() {
         super();
+        const value = [{name: "留着空白"}, {name: "高中"}, {name: "某些大学"},{name: "副学士学位"},{name: "本科"},{name: "硕士"},{name:"博士学位"}]
+        value.forEach(function (item) {
+            item.select = false;
+        })
         this.state = {
-            values: [{name: "留着空白"}, {name: "高中"}, {name: "某些大学"},{name: "副学士学位"},{name: "本科"},{name: "硕士"},{name:"博士学位"}]
+            values: value
         };
     }
 
@@ -64,12 +69,7 @@ export default class Education extends React.Component {
                                         <View style={styles.text}>
                                             <Text>{item.name}</Text>
                                         </View>
-                                        <View>
-                                            <Image
-                                                source={require('../../../../icons/select.png')}
-                                                style={item.select ? styles.select : styles.selectNone}
-                                            />
-                                        </View>
+                                        <Svg display={item.select} icon="select" size="20" style={styles.select}/>
                                     </View>
                                 </TouchableHighlight>
                             )
@@ -107,14 +107,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     select: {
-        width: 20,
-        height: 20,
         marginRight: 10,
     },
-    selectNone: {
-        width: 20,
-        height: 20,
-        marginRight: 10,
-        display: 'none'
-    }
 })

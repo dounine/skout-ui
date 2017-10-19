@@ -29,7 +29,9 @@ const FunStyle = {
         width: 30,
         height: 30,
         backgroundColor: '#67D0BD',
-        borderRadius: 6
+        borderRadius: 6,
+        alignItems:'center',
+        justifyContent:'center'
     }
 };
 

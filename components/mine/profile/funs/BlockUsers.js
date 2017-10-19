@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Image, TouchableHighlight, View, Text} from 'react-native';
 import {OpenMore} from '../../../commons/Commons';
+import Svg from '../../../../icons/Svg';
 
 
 export default class Groups extends Component {
@@ -12,10 +13,7 @@ export default class Groups extends Component {
                 style={styles.container}
             >
                 <View style={styles.containerLeft}>
-                    <Image
-                        style={styles.icon}
-                        source={require('../../../../icons/groups.png')}
-                    />
+                    <Svg icon="groups" color="#FFFFFF" size="26" style={styles.icon}/>
                 </View>
                 <View style={styles.containerRight}>
                     <View style={styles.funName}>

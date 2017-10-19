@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableHighlight, Image, ScrollView, View, Button, StyleSheet, Text} from 'react-native';
+import Svg from '../../../../icons/Svg';
 
 class Save extends React.Component {
 
@@ -23,7 +24,7 @@ export default class RelationshipStatus extends React.Component {
 
     static navigationOptions = {
         headerRight: (<Save/>),
-        title:"感情状态"
+        title: "感情状态"
     }
 
     select(item) {
@@ -36,8 +37,12 @@ export default class RelationshipStatus extends React.Component {
 
     constructor() {
         super();
+        const value = [{name: "留着空白"}, {name: "单身"}, {name: "在一段感情中"}, {name: "已婚"}, {name: "说不清"}, {name: "有对象,但开放"}, {name: "分居"}, {name: "离婚"}, {name: "已婚同性恋"}];
+        value.forEach(function (item) {
+            item.select = false;
+        })
         this.state = {
-            values: [{name: "留着空白"}, {name: "单身"}, {name: "在一段感情中"}, {name: "已婚"}, {name: "说不清"}, {name: "有对象,但开放"}, {name: "分居"}, {name: "离婚"}, {name: "已婚同性恋"}]
+            values: value
         };
     }
 
@@ -64,12 +69,7 @@ export default class RelationshipStatus extends React.Component {
                                         <View style={styles.text}>
                                             <Text>{item.name}</Text>
                                         </View>
-                                        <View>
-                                            <Image
-                                                source={require('../../../../icons/select.png')}
-                                                style={item.select ? styles.select : styles.selectNone}
-                                            />
-                                        </View>
+                                        <Svg display={item.select} icon="select" size="20" style={styles.select}/>
                                     </View>
                                 </TouchableHighlight>
                             )
@@ -84,13 +84,13 @@ export default class RelationshipStatus extends React.Component {
 const styles = StyleSheet.create({
     container: {
         paddingTop: 10,
-        backgroundColor:'#F6F6F6'
+        backgroundColor: '#F6F6F6'
     },
     listBox: {
-        borderTopWidth:1,
-        borderTopColor:'#E0E0E0',
-        borderBottomWidth:1,
-        borderBottomColor:'#E0E0E0',
+        borderTopWidth: 1,
+        borderTopColor: '#E0E0E0',
+        borderBottomWidth: 1,
+        borderBottomColor: '#E0E0E0',
         backgroundColor: '#FFFFFF',
     },
     text: {
@@ -107,14 +107,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     select: {
-        width: 20,
-        height: 20,
         marginRight: 10,
     },
-    selectNone: {
-        width: 20,
-        height: 20,
-        marginRight: 10,
-        display: 'none'
-    }
 })

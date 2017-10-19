@@ -35,7 +35,7 @@ export default class ProfileList extends Component {
                 >
                 <View style={styles.baseInfo}>
                     <TouchableHighlight
-                        underlayColor="#CCCCCC"
+                        underlayColor="#E0E0E0"
                         onPress={()=>this.onPress('Info')}
                     >
                         <View>
@@ -47,7 +47,7 @@ export default class ProfileList extends Component {
                     </View>
                     <View style={styles.funs}>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -55,7 +55,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -71,7 +71,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -79,7 +79,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -87,7 +87,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -95,7 +95,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -103,7 +103,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -111,7 +111,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -124,7 +124,7 @@ export default class ProfileList extends Component {
                     </View>
                     <View style={styles.funs}>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -132,7 +132,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>
@@ -140,7 +140,7 @@ export default class ProfileList extends Component {
                             </View>
                         </TouchableHighlight>
                         <TouchableHighlight
-                            underlayColor="#CCCCCC"
+                            underlayColor="#E0E0E0"
                             onPress={()=>this.onPress('Info')}
                         >
                             <View>

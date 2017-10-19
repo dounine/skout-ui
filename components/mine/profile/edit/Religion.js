@@ -1,5 +1,6 @@
 import React from 'react';
 import {TouchableHighlight, Image, ScrollView, View, Button, StyleSheet, Text} from 'react-native';
+import Svg from '../../../../icons/Svg';
 
 class Save extends React.Component {
 
@@ -64,12 +65,7 @@ export default class Religion extends React.Component {
                                         <View style={styles.text}>
                                             <Text>{item.name}</Text>
                                         </View>
-                                        <View>
-                                            <Image
-                                                source={require('../../../../icons/select.png')}
-                                                style={item.select ? styles.select : styles.selectNone}
-                                            />
-                                        </View>
+                                        <Svg display={item.select} icon="select" size="20" style={styles.select}/>
                                     </View>
                                 </TouchableHighlight>
                             )
@@ -107,14 +103,6 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     select: {
-        width: 20,
-        height: 20,
         marginRight: 10,
     },
-    selectNone: {
-        width: 20,
-        height: 20,
-        marginRight: 10,
-        display: 'none'
-    }
 })

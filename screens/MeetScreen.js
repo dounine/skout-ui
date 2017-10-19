@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Image} from 'react-native';
+import Svg from '../icons/Svg';
 
 export default class MeetScreen extends Component{
 
@@ -8,10 +9,7 @@ export default class MeetScreen extends Component{
         tabBarLabel:'遇见',
         tabBarIcon: ({tintColor}) => {
             return (
-                <Image
-                    source={require('../icons/meet.png')}
-                    style={[styles.icon,{tintColor:tintColor}]}
-                />
+                <Svg icon="meet" size="26" color="#929292" style={styles.icon}/>
             )
         }
     };
@@ -32,7 +30,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     icon:{
-        width:26,
-        height:26
+        width:28,
+        height:28
     }
 })

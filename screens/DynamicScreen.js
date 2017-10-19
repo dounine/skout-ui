@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Image} from 'react-native';
+import Svg from '../icons/Svg';
 
 export default class DynamicScreen extends Component{
 
@@ -8,10 +9,7 @@ export default class DynamicScreen extends Component{
         tabBarLabel:'动态',
         tabBarIcon: ({tintColor}) => {
             return (
-                <Image
-                    source={require('../icons/dynamic.png')}
-                    style={[styles.icon,{tintColor:tintColor}]}
-                />
+                <Svg icon="dynamic" size="26" color="#929292" style={styles.icon}/>
             )
         }
     };
@@ -32,7 +30,7 @@ const styles = StyleSheet.create({
         alignItems:'center'
     },
     icon:{
-        width:26,
-        height:26
+        width:28,
+        height:28
     }
 })

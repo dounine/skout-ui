@@ -13,6 +13,8 @@ import {
 } from 'react-native';
 import RootNavigation from './navigation/RootNavigation';
 
+
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
     'Cmd+D or shake for dev menu',

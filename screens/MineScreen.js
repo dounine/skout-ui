@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {View,Text,StyleSheet,Image} from 'react-native';
 import Mine from '../components/mine/Mine';
+import Svg from '../icons/Svg';
 
 export default class MineScreen extends Component{
 
@@ -9,10 +10,7 @@ export default class MineScreen extends Component{
         tabBarLabel:'我的',
         tabBarIcon: ({tintColor}) => {
             return (
-                <Image
-                    source={require('../icons/mine.png')}
-                    style={[styles.icon,{tintColor:tintColor}]}
-                />
+                <Svg icon="mine" size="26" color="#929292" style={styles.icon}/>
             )
         }
     };
@@ -33,7 +31,7 @@ const styles = StyleSheet.create({
         // alignItems:'center'
     },
     icon:{
-        width:26,
-        height:26
+        width:28,
+        height:28
     }
 })
