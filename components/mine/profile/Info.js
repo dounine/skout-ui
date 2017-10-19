@@ -119,6 +119,7 @@ export default class Info extends Component {
 
                 <View style={[styles.baseInfoGroup,{borderBottomWidth:0,paddingLeft:0}]}>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('AboutMeEditor')}
                     >
                         <View>
@@ -129,6 +130,7 @@ export default class Info extends Component {
 
                 <View style={styles.baseInfoGroup}>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('UsernameEditor')}
                     >
                         <View>
@@ -137,6 +139,7 @@ export default class Info extends Component {
                     </TouchableHighlight>
 
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('SkoutIDEditor')}
                     >
                         <View>
@@ -144,6 +147,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('GenderEditor')}
                     >
                         <View>
@@ -154,6 +158,7 @@ export default class Info extends Component {
 
                 <View style={[styles.baseInfoGroup,{marginBottom:30}]}>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('InterestedInEditor')}
                     >
                         <View>
@@ -168,6 +173,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('RelationshipStatusEditor')}
                     >
                         <View>
@@ -175,6 +181,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('BodyTypeEditor')}
                     >
                         <View>
@@ -189,6 +196,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('InterestsEditor')}
                     >
                         <View>
@@ -196,6 +204,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('EthnicityEditor')}
                     >
                         <View>
@@ -203,6 +212,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('ReligionEditor')}
                     >
                         <View>
@@ -210,6 +220,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('EducationEditor')}
                     >
                         <View>
@@ -217,6 +228,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('HasChildrenEditor')}
                     >
                         <View>
@@ -224,6 +236,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('SmokingEditor')}
                     >
                         <View>
@@ -259,7 +272,6 @@ const styles = StyleSheet.create({
     },
     baseInfoGroup: {
         marginTop: 30,
-        paddingLeft: 14,
         backgroundColor: '#FFFFFF',
         borderTopColor: '#E0E0E0',
         borderTopWidth: 1,

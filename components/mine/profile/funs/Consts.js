@@ -7,6 +7,7 @@ const FunStyle = {
     container: {
         flex: 1,
         height: 50,
+        marginLeft:14,
         flexDirection: 'row',
     },
     containerLeft:{

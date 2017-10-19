@@ -32,7 +32,7 @@ export default class ProfileList extends Component {
         return (
             <ScrollView
                 style={{backgroundColor:'#F6F6F6'}}
-            >
+                >
                 <View style={styles.baseInfo}>
                     <TouchableHighlight
                         underlayColor="#CCCCCC"
@@ -174,7 +174,6 @@ const styles = StyleSheet.create({
         borderBottomColor: '#E0E0E0',
         borderTopWidth: 1,
         borderBottomWidth: 1,
-        paddingLeft: 14
     },
     funText: {
         marginTop: 26,

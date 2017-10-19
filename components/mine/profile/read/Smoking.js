@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import {OpenMore} from '../../../commons/Commons';
+import ReadStyle from './Consts';
 
 export default class Smoking extends Component{
 
@@ -20,23 +21,7 @@ export default class Smoking extends Component{
         )
     }
 }
-
-const styles = StyleSheet.create({
-    headerRow: {
-        flexDirection: 'row',
-        backgroundColor: '#FFFFFF',
-        height: 50,
-        borderBottomColor: '#E0E0E0',
-        borderBottomWidth: 0,
-        alignItems: 'center',
-    },
-    genderLeft:{
-        flex:1
-    },
-    genderRight:{
-        flexDirection:'row',
-    },
-    genderText:{
-        color:'#989898',
-    }
-})
+const readStyle = ReadStyle.clone()
+delete readStyle.headerRow.borderBottomColor
+delete readStyle.headerRow.borderBottomWidth
+const styles = StyleSheet.create(readStyle)

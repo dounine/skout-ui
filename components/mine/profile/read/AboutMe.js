@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import {OpenMore} from '../../../commons/Commons';
+import ReadStyle from './Consts';
 
 export default class AboutMe extends Component {
 
@@ -29,8 +30,8 @@ export default class AboutMe extends Component {
 
 const styles = StyleSheet.create({
     headerRow: {
+        flex:1,
         flexDirection: 'row',
-        backgroundColor: '#FFFFFF',
         height: 54,
         borderBottomColor: '#E0E0E0',
         borderBottomWidth: 1,
@@ -41,9 +42,6 @@ const styles = StyleSheet.create({
     genderRight: {
         flexDirection: 'row',
         alignItems:'center'
-    },
-    genderText: {
-        color: '#989898',
     },
     aboutMeText: {
         marginTop: 10,
