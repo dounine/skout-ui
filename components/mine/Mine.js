@@ -63,7 +63,7 @@ const MineNaviator = StackNavigator(
         },
     },
     {
-        initialRouteName:'Info'
+        initialRouteName:'ProfileList'
     }
 );
 

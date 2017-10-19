@@ -32,7 +32,7 @@ class Save extends Component {
     }
 }
 
-var swipeoutBtns = [
+const swipeoutBtns = [
     {
         text: '顶置',
         type: 'primary'
@@ -105,6 +105,7 @@ export default class Header extends Component {
             }
         };
         ImagePicker.launchImageLibrary(options, (response)  => {
+            console.log(response.uri)
             // Same code as in above section!
         });
     }
@@ -114,6 +115,7 @@ export default class Header extends Component {
             title: 'Select Avatar',
         };
         ImagePicker.launchCamera(options, (response)  => {
+
             // Same code as in above section!
         });
     }
@@ -175,7 +177,9 @@ const styles = StyleSheet.create({
     headerSize: {
         marginLeft: 14,
         height: 80,
-        width: 80
+        width: 80,
+        borderRadius:4,
+        overflow:'hidden'
     },
     uploadBox: {
         height: 40,

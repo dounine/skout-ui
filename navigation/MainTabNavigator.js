@@ -24,7 +24,7 @@ export default TabNavigator(
         },
     },
     {
-        initialRouteName:'Mine',
+        initialRouteName:'Chat',
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
         animationEnabled: false,

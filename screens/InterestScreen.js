@@ -6,7 +6,7 @@ export default class InterestScreen extends Component{
 
     static navigationOptions = {
         header: null,
-        tabBarLabel:'摇一摇',
+        tabBarLabel:'感兴趣',
         tabBarIcon: ({tintColor}) => {
             return (
                 <Svg icon="interest" size="26" color="#929292" style={styles.icon}/>
