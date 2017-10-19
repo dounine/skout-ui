@@ -3,7 +3,7 @@ import {ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native'
 import {StackNavigator} from 'react-navigation';
 import ProfileList from './profile/ProfileList';
 import Info from './profile/Info';
-import {AboutMe,BodyType,Education,Ethnicity,Gender,HasChildren,Height,InterestedIn,Interests,LookingFor,RelationshipStatus,Religion,SkoutID,Smoking,Username} from './profile/edit/Editors';
+import {AboutMe,BodyType,Header,Education,Ethnicity,Gender,HasChildren,Height,InterestedIn,Interests,LookingFor,RelationshipStatus,Religion,SkoutID,Smoking,Username} from './profile/edit/Editors';
 
 const MineNaviator = StackNavigator(
     {
@@ -12,6 +12,9 @@ const MineNaviator = StackNavigator(
         },
         Info: {
             screen: Info
+        },
+        HeaderEditor:{
+            screen:Header
         },
         UsernameEditor:{
             screen:Username
@@ -60,7 +63,7 @@ const MineNaviator = StackNavigator(
         },
     },
     {
-        initialRouteName:'ProfileList'
+        initialRouteName:'Info'
     }
 );
 

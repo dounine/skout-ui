@@ -23,6 +23,9 @@ module.exports = {
     get InterestedIn() {
         return require('./InterestedIn').default
     },
+    get Header() {
+        return require('./Header').default
+    },
     get Interests() {
         return require('./Interests').default
     },

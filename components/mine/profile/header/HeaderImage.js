@@ -19,6 +19,8 @@ const styles = StyleSheet.create({
     actor:{
         width:headerSize,
         height:headerSize,
-        borderRadius:headerSize/2
+        borderRadius:headerSize/2,
+        borderColor:'#9cf',
+        borderWidth:2,
     }
 })

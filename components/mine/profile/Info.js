@@ -2,7 +2,24 @@ import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import HeaderImage from './header/HeaderImage';
 import {OpenMore} from '../../commons/Commons';
-import {AboutMe,BodyType,Education,Ethnicity,Gender,HasChildren,Height,InterestedIn,Interests,LookingFor,RelationshipStatus,Religion,SkoutID,Smoking,Username} from './read/Readers';
+import {
+    AboutMe,
+    BodyType,
+    Education,
+    Ethnicity,
+    Gender,
+    HasChildren,
+    Height,
+    InterestedIn,
+    Interests,
+    LookingFor,
+    RelationshipStatus,
+    Religion,
+    SkoutID,
+    Smoking,
+    Username
+} from './read/Readers';
+import Header from './header/Header';
 import Picker from 'react-native-picker';
 
 
@@ -10,15 +27,15 @@ export default class Info extends Component {
 
     static navigationOptions = {
         // header:null
-        title:"信息"
+        title: "信息"
     };
 
-    _showTimePicker = () =>{
-        let data = [],data1=[];
-        for(var i=3;i<=8;i++){
+    _showTimePicker = () => {
+        let data = [], data1 = [];
+        for (var i = 3; i <= 8; i++) {
             data.push(i);
         }
-        for(var i=0;i<=11;i++){
+        for (var i = 0; i <= 11; i++) {
             data1.push(i);
         }
         let pickerData = []
@@ -26,10 +43,10 @@ export default class Info extends Component {
         pickerData.push(data1)
         Picker.init({
             pickerData,
-            pickerConfirmBtnText:'确认',
-            pickerCancelBtnText:'取消',
-            pickerTitleText:'选择身高',
-            selectedValue: [[3],[0]],
+            pickerConfirmBtnText: '确认',
+            pickerCancelBtnText: '取消',
+            pickerTitleText: '选择身高',
+            selectedValue: [[3], [0]],
             onPickerConfirm: data => {
                 console.log(data);
             },
@@ -43,13 +60,13 @@ export default class Info extends Component {
         Picker.show();
     };
 
-    _showInterestedPicker = () =>{
-        let data = ["女人","男人","女人跟男人"];
+    _showInterestedPicker = () => {
+        let data = ["女人", "男人", "女人跟男人"];
         Picker.init({
-            pickerData:data,
-            pickerConfirmBtnText:'确认',
-            pickerCancelBtnText:'取消',
-            pickerTitleText:'选择对象',
+            pickerData: data,
+            pickerConfirmBtnText: '确认',
+            pickerCancelBtnText: '取消',
+            pickerTitleText: '选择对象',
             selectedValue: ['女人'],
             onPickerConfirm: data => {
                 console.log(data);
@@ -64,13 +81,13 @@ export default class Info extends Component {
         Picker.show();
     };
 
-    _showGenderPicker = () =>{
-        let data = ["女","男"];
+    _showGenderPicker = () => {
+        let data = ["女", "男"];
         Picker.init({
-            pickerData:data,
-            pickerConfirmBtnText:'确认',
-            pickerCancelBtnText:'取消',
-            pickerTitleText:'选择性别',
+            pickerData: data,
+            pickerConfirmBtnText: '确认',
+            pickerCancelBtnText: '取消',
+            pickerTitleText: '选择性别',
             selectedValue: ['女'],
             onPickerConfirm: data => {
                 console.log(data);
@@ -86,13 +103,13 @@ export default class Info extends Component {
     }
 
     genderPress = (name) => {
-        if(name==='HeightEditor'){
+        if (name === 'HeightEditor') {
             this._showTimePicker()
-        }else if(name==='InterestedInEditor'){
+        } else if (name === 'InterestedInEditor') {
             this._showInterestedPicker()
-        }else if(name==='GenderEditor'){
+        } else if (name === 'GenderEditor') {
             this._showGenderPicker()
-        }else{
+        } else {
             this.props.navigation.navigate(name)
         }
     };
@@ -104,20 +121,17 @@ export default class Info extends Component {
                 style={styles.scrollView}
             >
                 <View style={styles.baseHeaderBox}>
-                    <View
-                        style={styles.baseHeaderInfo}
+                    <TouchableHighlight
+                        underlayColor="#E0E0E0"
+                        onPress={() => this.genderPress('HeaderEditor')}
                     >
-                        <HeaderImage/>
-                        <View style={styles.baseHeaderInfoBase}>
-                            <Text style={styles.username}>Lake isme</Text>
+                        <View>
+                            <Header />
                         </View>
-                    </View>
-                    <View>
-                        <OpenMore/>
-                    </View>
+                    </TouchableHighlight>
                 </View>
 
-                <View style={[styles.baseInfoGroup,{borderBottomWidth:0,paddingLeft:0}]}>
+                <View style={[styles.baseInfoGroup, {borderBottomWidth: 0, paddingLeft: 0}]}>
                     <TouchableHighlight
                         underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('AboutMeEditor')}
@@ -156,7 +170,7 @@ export default class Info extends Component {
                     </TouchableHighlight>
                 </View>
 
-                <View style={[styles.baseInfoGroup,{marginBottom:30}]}>
+                <View style={[styles.baseInfoGroup, {marginBottom: 30}]}>
                     <TouchableHighlight
                         underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('InterestedInEditor')}
@@ -166,6 +180,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('LookingForEditor')}
                     >
                         <View>
@@ -189,6 +204,7 @@ export default class Info extends Component {
                         </View>
                     </TouchableHighlight>
                     <TouchableHighlight
+                        underlayColor="#E0E0E0"
                         onPress={() => this.genderPress('HeightEditor')}
                     >
                         <View>
@@ -254,12 +270,12 @@ const styles = StyleSheet.create({
         backgroundColor: '#F4F4F4',
     },
     baseHeaderBox: {
-        backgroundColor: '#FFFFFF',
-        flexDirection: 'row',
-        height: 90,
-        borderBottomWidth: 1,
-        borderBottomColor: '#E0E0E0',
-        alignItems: 'center'
+        // backgroundColor: '#FFFFFF',
+        // flexDirection: 'row',
+        // height: 90,
+        // borderBottomWidth: 1,
+        // borderBottomColor: '#E0E0E0',
+        // alignItems: 'center'
     },
     baseHeaderInfo: {
         flex: 1,
