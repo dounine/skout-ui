@@ -1,16 +1,16 @@
 import React from 'react';
-import {TouchableHighlight, View, Text, StyleSheet} from 'react-native';
+import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import Svg from '../../icons/Svg';
 
 export default class Notifications extends React.Component {
 
     show = () => {
 
-    }
+    };
 
     render() {
         return (
-            <TouchableHighlight
+            <TouchableOpacity
                 onPress={this.show}
                 style={{marginRight:14}}
                 underlayColor={'#F4F4F4'}
@@ -21,7 +21,7 @@ export default class Notifications extends React.Component {
                         <Text style={{color: '#FFF', fontSize: 8}}>99+</Text>
                     </View>
                 </View>
-            </TouchableHighlight>
+            </TouchableOpacity>
         )
     }
 }
@@ -42,4 +42,4 @@ const styles = StyleSheet.create({
         color: '#FFFFFF',
         fontSize: 8
     }
-})
+});

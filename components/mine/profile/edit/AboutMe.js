@@ -5,7 +5,7 @@ class Save extends Component {
 
     save = () =>{
         alert()
-    }
+    };
 
     render() {
         return (

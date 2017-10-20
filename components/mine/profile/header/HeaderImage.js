@@ -23,4 +23,4 @@ const styles = StyleSheet.create({
         borderColor:'#9cf',
         borderWidth:2,
     }
-})
+});

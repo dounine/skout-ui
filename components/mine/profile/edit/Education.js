@@ -6,7 +6,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,14 +25,14 @@ export default class Education extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:"教育"
-    }
+    };
 
     select(item) {
         this.state.values.forEach(function (i) {
             i.select = undefined
-        })
-        item.select = !item.select
-        this.setState({})
+        });
+        item.select = !item.select;
+        this.setState({});
     };
 
     constructor() {
@@ -40,7 +40,7 @@ export default class Education extends React.Component {
         const value = [{name: "留着空白"}, {name: "高中"}, {name: "某些大学"},{name: "副学士学位"},{name: "本科"},{name: "硕士"},{name:"博士学位"}]
         value.forEach(function (item) {
             item.select = false;
-        })
+        });
         this.state = {
             values: value
         };
@@ -49,7 +49,7 @@ export default class Education extends React.Component {
 
     render() {
 
-        const $self = this
+        const $self = this;
         return (
             <ScrollView
                 style={styles.container}
@@ -109,4 +109,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});

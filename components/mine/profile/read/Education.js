@@ -21,4 +21,4 @@ export default class Education extends Component{
         )
     }
 }
-const styles = StyleSheet.create(ReadStyle)
+const styles = StyleSheet.create(ReadStyle);

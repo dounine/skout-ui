@@ -6,7 +6,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,14 +25,14 @@ export default class HasChildren extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:"是否有孩子"
-    }
+    };
 
     select(item) {
         this.state.values.forEach(function (i) {
             i.select = undefined
-        })
-        item.select = !item.select
-        this.setState({})
+        });
+        item.select = !item.select;
+        this.setState({});
     };
 
     constructor() {
@@ -40,7 +40,7 @@ export default class HasChildren extends React.Component {
         const value = [{name: "留着空白"}, {name: "他们跟我住在一起"}, {name: "他们住在别的地方"},{name: "没有"}]
         value.forEach(function (item) {
             item.select = false;
-        })
+        });
         this.state = {
             values: value
         };
@@ -49,7 +49,7 @@ export default class HasChildren extends React.Component {
 
     render() {
 
-        const $self = this
+        const $self = this;
         return (
             <ScrollView
                 style={styles.container}
@@ -109,4 +109,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});

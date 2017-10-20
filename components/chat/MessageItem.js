@@ -17,8 +17,8 @@ const swipeoutBtns = [
 export default class MessageItem extends React.Component {
 
     onOpen = () => {
-        this.props.navigation.navigate('MessageContainer')
-    }
+        this.props.navigation.navigate('MessageChat')
+    };
 
     render() {
 
@@ -139,4 +139,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         // alignItems:'center'
     }
-})
+});

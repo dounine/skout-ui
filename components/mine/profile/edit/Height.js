@@ -6,7 +6,7 @@ class Save extends Component {
 
     save = () =>{
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,12 +25,12 @@ export default class Height extends Component {
     static navigationOptions = {
         headerRight:(<Save/>),
         title:"身高"
-    }
+    };
 
 
 
     constructor() {
-        super()
+        super();
         this.state = {
             language: '男'
         }

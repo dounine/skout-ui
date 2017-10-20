@@ -6,7 +6,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,7 +25,7 @@ export default class LookingFor extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:"寻找"
-    }
+    };
 
     select(item) {
         item.select = !item.select
@@ -37,7 +37,7 @@ export default class LookingFor extends React.Component {
         const value =  [{name: "朋友"}, {name: "调情"}, {name: "乐趣"}, {name: "约会"}, {name: "酒会"}, {name: "聊天"}, {name: "感情"}]
         value.forEach(function (item) {
             item.select = false;
-        })
+        });
         this.state = {
             values: value
         };
@@ -46,7 +46,7 @@ export default class LookingFor extends React.Component {
 
     render() {
 
-        const $self = this
+        const $self = this;
         return (
             <ScrollView
                 style={styles.container}
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});

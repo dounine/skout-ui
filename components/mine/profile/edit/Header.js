@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {
-    TouchableHighlight,
+    TouchableOpacity,
     ScrollView,
     StyleSheet,
     Picker,
@@ -19,7 +19,7 @@ class Save extends Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -44,44 +44,35 @@ const swipeoutBtns = [
 
         }
     }
-]
+];
 class RowComponent extends React.Component {
 
 
     render() {
         return (
-            <TouchableHighlight
-                underlayColor={'#eee'}
-                style={{
-                    backgroundColor: '#F8F8F8',
-                    borderBottomWidth: 1,
-                    borderColor: '#eee',
-                }}
-            >
-                <View>
-                    <Swipeout
-                        right={swipeoutBtns}
-                    >
-                        <View style={styles.headerList}>
-                            <View style={{flex: 1}}>
-                                <ImageBackground
-                                    style={styles.headerSize}
-                                    source={
-                                        require('../../../../test-img/WechatIMG.jpeg')
-                                    }
+            <View>
+                <Swipeout
+                    right={swipeoutBtns}
+                >
+                    <View style={styles.headerList}>
+                        <View style={{flex: 1}}>
+                            <ImageBackground
+                                style={styles.headerSize}
+                                source={
+                                    require('../../../../test-img/WechatIMG.jpeg')
+                                }
 
-                                >
-                                    <Svg icon="show" size="30" color="#FFFFFF" style={styles.mainImg}/>
-                                </ImageBackground>
-                            </View>
-                            <View style={styles.read}>
-                                <Svg icon="read" size="20" color="#777777"/>
-                                <Text>1w</Text>
-                            </View>
+                            >
+                                <Svg icon="show" size="30" color="#FFFFFF" style={styles.mainImg}/>
+                            </ImageBackground>
                         </View>
-                    </Swipeout>
-                </View>
-            </TouchableHighlight>
+                        <View style={styles.read}>
+                            <Svg icon="read" size="20" color="#777777"/>
+                            <Text>1w</Text>
+                        </View>
+                    </View>
+                </Swipeout>
+            </View>
         )
     }
 }
@@ -104,24 +95,24 @@ export default class Header extends Component {
                 path: 'images'
             }
         };
-        ImagePicker.launchImageLibrary(options, (response)  => {
+        ImagePicker.launchImageLibrary(options, (response) => {
             console.log(response.uri)
             // Same code as in above section!
         });
-    }
+    };
 
     launchCamera = () => {
         var options = {
             title: 'Select Avatar',
         };
-        ImagePicker.launchCamera(options, (response)  => {
+        ImagePicker.launchCamera(options, (response) => {
 
             // Same code as in above section!
         });
-    }
+    };
 
     constructor() {
-        super()
+        super();
         this.state = {
             text: '我是人'
         }
@@ -132,10 +123,10 @@ export default class Header extends Component {
             <View style={{flex: 1}}>
                 <View style={styles.uploadBox}>
                     <View style={styles.photoCount}>
-                        <Text style={{color:'#515151'}}>您总共有<Text style={styles.countNumber}>{'20'}</Text>张照片</Text>
+                        <Text style={{color: '#515151'}}>您总共有<Text style={styles.countNumber}>{'20'}</Text>张照片</Text>
                     </View>
                     <View style={styles.upload}>
-                        <TouchableHighlight
+                        <TouchableOpacity
                             underlayColor="#E0E0E0"
                             onPress={this.launchImageLibrary}
                             style={{marginRight: 20}}
@@ -143,8 +134,8 @@ export default class Header extends Component {
                             <View>
                                 <Svg icon="add" size="30" color="#9cf" style={styles.uploadIcon}/>
                             </View>
-                        </TouchableHighlight>
-                        <TouchableHighlight
+                        </TouchableOpacity>
+                        <TouchableOpacity
                             underlayColor="#E0E0E0"
                             style={{marginRight: 20}}
                             onPress={this.launchCamera}
@@ -152,7 +143,7 @@ export default class Header extends Component {
                             <View>
                                 <Svg icon="camera" size="30" color="#9cf" style={styles.uploadIcon}/>
                             </View>
-                        </TouchableHighlight>
+                        </TouchableOpacity>
                     </View>
 
                 </View>
@@ -178,8 +169,8 @@ const styles = StyleSheet.create({
         marginLeft: 14,
         height: 80,
         width: 80,
-        borderRadius:4,
-        overflow:'hidden'
+        borderRadius: 4,
+        overflow: 'hidden'
     },
     uploadBox: {
         height: 40,
@@ -191,7 +182,7 @@ const styles = StyleSheet.create({
     photoCount: {
         flex: 1,
         justifyContent: 'center',
-        marginLeft:10
+        marginLeft: 10
     },
     countNumber: {
         color: '#9cf',
@@ -214,5 +205,5 @@ const styles = StyleSheet.create({
         marginLeft: 50,
         marginTop: 54
     }
-})
+});
 

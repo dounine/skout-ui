@@ -6,7 +6,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,13 +25,13 @@ export default class Religion extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:"宗教"
-    }
+    };
 
     select(item) {
         this.state.values.forEach(function (i) {
             i.select = undefined
-        })
-        item.select = !item.select
+        });
+        item.select = !item.select;
         this.setState({})
     };
 
@@ -45,7 +45,7 @@ export default class Religion extends React.Component {
 
     render() {
 
-        const $self = this
+        const $self = this;
         return (
             <ScrollView
                 style={styles.container}
@@ -105,4 +105,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});

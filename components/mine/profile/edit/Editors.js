@@ -47,4 +47,4 @@ module.exports = {
     get Username() {
         return require('./Username').default
     },
-}
+};

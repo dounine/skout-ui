@@ -5,7 +5,7 @@ class Save extends Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -24,7 +24,7 @@ export default class SkoutID extends Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:"SkoutID"
-    }
+    };
 
     constructor() {
         super()

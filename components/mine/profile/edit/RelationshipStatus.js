@@ -6,7 +6,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,13 +25,13 @@ export default class RelationshipStatus extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title: "感情状态"
-    }
+    };
 
     select(item) {
         this.state.values.forEach(function (i) {
             i.select = undefined
-        })
-        item.select = !item.select
+        });
+        item.select = !item.select;
         this.setState({})
     };
 
@@ -40,7 +40,7 @@ export default class RelationshipStatus extends React.Component {
         const value = [{name: "留着空白"}, {name: "单身"}, {name: "在一段感情中"}, {name: "已婚"}, {name: "说不清"}, {name: "有对象,但开放"}, {name: "分居"}, {name: "离婚"}, {name: "已婚同性恋"}];
         value.forEach(function (item) {
             item.select = false;
-        })
+        });
         this.state = {
             values: value
         };
@@ -49,7 +49,7 @@ export default class RelationshipStatus extends React.Component {
 
     render() {
 
-        const $self = this
+        const $self = this;
         return (
             <ScrollView
                 style={styles.container}
@@ -109,4 +109,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});

@@ -57,4 +57,4 @@ const styles = StyleSheet.create({
         color:'#585858'
         // margin: 10
     }
-})
+});

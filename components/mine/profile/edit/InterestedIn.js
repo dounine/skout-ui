@@ -5,7 +5,7 @@ class Save extends Component {
 
     save = () =>{
         alert()
-    }
+    };
 
     render() {
         return (
@@ -24,10 +24,10 @@ export default class InterestedIn extends Component {
     static navigationOptions = {
         headerRight:(<Save/>),
         title:"感兴趣的人"
-    }
+    };
 
     constructor() {
-        super()
+        super();
         this.state = {
             language: 'man'
         }

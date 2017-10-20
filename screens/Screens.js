@@ -14,4 +14,4 @@ module.exports = {
     get MeetScreen(){
         return require('./MeetScreen').default
     }
-}
+};

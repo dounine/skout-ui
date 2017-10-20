@@ -7,7 +7,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -26,23 +26,23 @@ export default class Ethnicity extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title: "种族"
-    }
+    };
 
     select(item) {
         this.state.values.forEach(function (i) {
             i.select = undefined
-        })
-        item.select = !item.select
-        this.setState({})
+        });
+        item.select = !item.select;
+        this.setState({});
     }
     ;
 
     constructor() {
         super();
-        const value = [{name: "留下空白"}, {name: "拉丁/拉丁美洲人"}, {name: "黑人/土著人"}, {name: "亚洲"}, {name: "东印度"}, {name: "太平洋岛民"}, {name: "白人/高加索"}, {name: "中东"}, {name: "杂"}]
+        const value = [{name: "留下空白"}, {name: "拉丁/拉丁美洲人"}, {name: "黑人/土著人"}, {name: "亚洲"}, {name: "东印度"}, {name: "太平洋岛民"}, {name: "白人/高加索"}, {name: "中东"}, {name: "杂"}];
         value.forEach(function (item) {
             item.select = false;
-        })
+        });
         this.state = {
             values: value
         };
@@ -51,7 +51,7 @@ export default class Ethnicity extends React.Component {
 
     render() {
 
-        const $self = this
+        const $self = this;
         return (
             <ScrollView
                 style={styles.container}
@@ -111,4 +111,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});

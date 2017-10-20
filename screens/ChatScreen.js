@@ -9,7 +9,7 @@ export default class ChatScreen extends Component {
 
     static navigationOptions = {
         header: null,
-        // title: '聊天',
+        tabBarLabel: '聊天',
         tabBarIcon: ({tintColor}) => {
             return (
                 <Svg icon="chat" size="26" color="#929292" style={styles.icon}/>
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
     }
-})
+});

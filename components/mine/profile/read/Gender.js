@@ -29,8 +29,8 @@ export default class Gender extends Component{
     }
 }
 
-const readStyle = ReadStyle.clone()
-delete readStyle.headerRow.borderBottomColor
-delete readStyle.headerRow.borderBottomWidth
-readStyle.genderRight.marginRight = 24
-const styles = StyleSheet.create(readStyle)
+const readStyle = ReadStyle.clone();
+delete readStyle.headerRow.borderBottomColor;
+delete readStyle.headerRow.borderBottomWidth;
+readStyle.genderRight.marginRight = 24;
+const styles = StyleSheet.create(readStyle);

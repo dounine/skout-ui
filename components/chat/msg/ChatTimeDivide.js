@@ -11,23 +11,23 @@ class ChatTimeDivide extends React.Component{
             }>
                 <Text
                     style={styles.chatTimeText}
-                >2017-10-06 20:41</Text>
+                >{this.props.value}</Text>
             </View>
         )
     }
 }
 
-// ChatTimeDivide.propTypes = {
-//     value:React.PropTypes.string.isRequired
-// }
-
-export default ChatTimeDivide;
+ChatTimeDivide.propTypes = {
+    value:PropTypes.string.isRequired
+};
 
 const styles = StyleSheet.create({
     chatTimeDivide: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
+        marginTop:10,
+        marginBottom:10
     },
     chatTimeText: {
         backgroundColor: '#ACACAF',
@@ -41,3 +41,5 @@ const styles = StyleSheet.create({
         overflow: 'hidden'
     },
 });
+
+export default ChatTimeDivide;

@@ -6,7 +6,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,7 +25,7 @@ export default class Interests extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:"爱好"
-    }
+    };
 
     select(item) {
         item.select = !item.select
@@ -37,7 +37,7 @@ export default class Interests extends React.Component {
         const value = [{name: "电影"}, {name: "看书"}, {name: "电视"}, {name: "音乐"}, {name: "家人"}, {name: "宠物"}, {name: "喝"}, {name: "餐馆"}, {name: "购物"},{name:"看体育"},{name:"体育"},{name:"酒吧"},{name:"跳舞"},{name:"游戏"}]
         value.forEach(function (item) {
             item.select = false;
-        })
+        });
         this.state = {
             values: value
         };
@@ -46,7 +46,7 @@ export default class Interests extends React.Component {
 
     render() {
 
-        const $self = this
+        const $self = this;
         return (
             <ScrollView
                 style={styles.container}
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});

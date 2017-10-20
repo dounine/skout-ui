@@ -21,7 +21,7 @@ export default class Smoking extends Component{
         )
     }
 }
-const readStyle = ReadStyle.clone()
-delete readStyle.headerRow.borderBottomColor
-delete readStyle.headerRow.borderBottomWidth
-const styles = StyleSheet.create(readStyle)
+const readStyle = ReadStyle.clone();
+delete readStyle.headerRow.borderBottomColor;
+delete readStyle.headerRow.borderBottomWidth;
+const styles = StyleSheet.create(readStyle);

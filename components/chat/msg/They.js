@@ -125,4 +125,4 @@ const styles = StyleSheet.create({
     translateViewText: {
         fontSize: 14
     }
-})
+});

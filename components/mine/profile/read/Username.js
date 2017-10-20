@@ -22,4 +22,4 @@ export default class Username extends Component{
     }
 }
 
-const styles = StyleSheet.create(ReadStyle)
+const styles = StyleSheet.create(ReadStyle);

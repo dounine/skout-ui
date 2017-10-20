@@ -5,7 +5,7 @@ class Save extends Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -24,10 +24,10 @@ export default class Username extends Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:"用户名"
-    }
+    };
 
     constructor() {
-        super()
+        super();
         this.state = {
             text: 'Lake isme'
         }

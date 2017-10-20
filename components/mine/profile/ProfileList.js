@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
-import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
+import {TouchableHighlight,TouchableOpacity, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import Profile from './Profile';
-import Gender from './read/Gender';
 import Friends from './funs/Friends';
 import Groups from './funs/Groups';
 import Translate from './funs/Translate';
@@ -180,4 +179,4 @@ const styles = StyleSheet.create({
         marginLeft: 14,
         color: '#7F7F7F'
     }
-})
+});

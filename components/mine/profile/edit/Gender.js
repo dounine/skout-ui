@@ -5,7 +5,7 @@ class Save extends Component {
 
     save = () =>{
         alert()
-    }
+    };
 
     render() {
         return (
@@ -23,7 +23,7 @@ export default class GenderPicker extends Component {
     static navigationOptions = {
         headerRight:(<Save/>),
         title:"性别"
-    }
+    };
 
     constructor() {
         super()

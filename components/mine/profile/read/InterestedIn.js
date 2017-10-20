@@ -22,5 +22,5 @@ export default class InterestedIn extends Component{
     }
 }
 const readStyle = ReadStyle.clone();
-readStyle.genderRight.marginRight = 24
-const styles = StyleSheet.create(readStyle)
+readStyle.genderRight.marginRight = 24;
+const styles = StyleSheet.create(readStyle);

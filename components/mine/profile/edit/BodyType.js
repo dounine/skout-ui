@@ -6,7 +6,7 @@ class Save extends React.Component {
 
     save = () => {
         alert()
-    }
+    };
 
     render() {
         return (
@@ -25,7 +25,7 @@ export default class BodyType extends React.Component {
     static navigationOptions = {
         headerRight: (<Save/>),
         title:'身体类型'
-    }
+    };
 
     select(item) {
         item.select = !item.select
@@ -106,4 +106,4 @@ const styles = StyleSheet.create({
     select: {
         marginRight: 10,
     },
-})
+});
