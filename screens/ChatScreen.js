@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, View, Text, StyleSheet} from 'react-native';
 import Svg from '../icons/Svg';
-import Notification from '../components/chat/Notification';
-import Messages from '../components/chat/Messages';
 
+import MessageContainer from '../components/chat/MessageNav';
+import {StackNavigator} from 'react-navigation';
 
 export default class ChatScreen extends Component {
 
     static navigationOptions = {
-        // header: null,
-        tabBarLabel: '聊天',
-        headerRight: (<Notification/>),
+        header: null,
+        // title: '聊天',
         tabBarIcon: ({tintColor}) => {
             return (
                 <Svg icon="chat" size="26" color="#929292" style={styles.icon}/>
@@ -20,7 +19,7 @@ export default class ChatScreen extends Component {
 
     render() {
         return (
-            <Messages />
+            <MessageContainer />
         )
     }
 }

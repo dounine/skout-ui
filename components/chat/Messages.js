@@ -1,8 +1,21 @@
 import React from 'react';
 import {StyleSheet,View,ScrollView,Text,RefreshControl} from 'react-native';
-import Message from './Message';
+import Notification from './Notification';
+import Svg from '../../icons/Svg';
+import MessageItem from './MessageItem';
 
 export default class Messages extends React.Component{
+
+    static navigationOptions = {
+        // header: null,
+        title: '聊天',
+        headerRight: (<Notification/>),
+        tabBarIcon: ({tintColor}) => {
+            return (
+                <Svg icon="chat" size="26" color="#929292" style={styles.icon}/>
+            )
+        }
+    };
 
     constructor(){
         super();
@@ -26,13 +39,14 @@ export default class Messages extends React.Component{
                 }
                 style={styles.container}
             >
-                <Message />
-                <Message />
-                <Message />
+                <MessageItem navigation={this.props.navigation}/>
+                <MessageItem navigation={this.props.navigation} />
+                <MessageItem navigation={this.props.navigation} />
             </ScrollView>
         )
     }
 }
+
 
 const styles = StyleSheet.create({
     container:{
