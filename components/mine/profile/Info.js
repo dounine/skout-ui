@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
+import {Picker,TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import HeaderImage from './header/HeaderImage';
 import {OpenMore} from '../../commons/Commons';
 import {
@@ -20,7 +20,7 @@ import {
     Username
 } from './read/Readers';
 import Header from './header/Header';
-import Picker from 'react-native-picker';
+import ThreadPicker from 'react-native-picker';
 
 
 export default class Info extends Component {
@@ -41,7 +41,7 @@ export default class Info extends Component {
         let pickerData = []
         pickerData.push(data)
         pickerData.push(data1)
-        Picker.init({
+        ThreadPicker.init({
             pickerData,
             pickerConfirmBtnText: '确认',
             pickerCancelBtnText: '取消',
@@ -57,12 +57,12 @@ export default class Info extends Component {
                 console.log(data);
             }
         });
-        Picker.show();
+        ThreadPicker.show();
     };
 
     _showInterestedPicker = () => {
         let data = ["女人", "男人", "女人跟男人"];
-        Picker.init({
+        ThreadPicker.init({
             pickerData: data,
             pickerConfirmBtnText: '确认',
             pickerCancelBtnText: '取消',
@@ -78,12 +78,12 @@ export default class Info extends Component {
                 console.log(data);
             }
         });
-        Picker.show();
+        ThreadPicker.show();
     };
 
     _showGenderPicker = () => {
         let data = ["女", "男"];
-        Picker.init({
+        ThreadPicker.init({
             pickerData: data,
             pickerConfirmBtnText: '确认',
             pickerCancelBtnText: '取消',
@@ -99,7 +99,7 @@ export default class Info extends Component {
                 console.log(data);
             }
         });
-        Picker.show();
+        ThreadPicker.show();
     }
 
     genderPress = (name) => {

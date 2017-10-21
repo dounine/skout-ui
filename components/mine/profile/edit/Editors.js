@@ -11,17 +11,8 @@ module.exports = {
     get Ethnicity() {
         return require('./Ethnicity').default
     },
-    get Gender() {
-        return require('./Gender').default
-    },
     get HasChildren() {
         return require('./HasChildren').default
-    },
-    get Height() {
-        return require('./Height').default
-    },
-    get InterestedIn() {
-        return require('./InterestedIn').default
     },
     get Header() {
         return require('./Header').default
