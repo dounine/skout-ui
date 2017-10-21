@@ -14,5 +14,8 @@ export default StackNavigator({
         screen: Profile
     }
 }, {
-    initialRouteName: 'Messages'
+    initialRouteName: 'MessageChat',
+    navigationOptions:{
+        headerStyle:{height: 64},
+    }
 });

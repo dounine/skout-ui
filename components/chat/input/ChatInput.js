@@ -1,9 +1,12 @@
 import React from 'react';
 import {
+    ScrollView,
+    KeyboardAvoidingView,
     findNodeHandle,
     UIManager,
     TouchableOpacity,
     DeviceEventEmitter,
+    dismissKeyboard,
     Keyboard,
     View,
     Text,
@@ -34,6 +37,7 @@ const navBarHeight = 68;
 const textInputViewHeight = 64;
 const textInputHeight = 32;
 let textInputLayoutHeightPrev = 0;
+const isDevModule = false;
 
 export default class ChatInput extends React.Component {
 
@@ -43,19 +47,38 @@ export default class ChatInput extends React.Component {
 
     state = {
         keyboardHeight: 0,
-        inputBoxTop: Layout.window.height - textInputViewHeight - navBarHeight
+        inputBoxShow: false,
+        openMoreFunctions: true,
+        inputBoxTop: Layout.window.nbarHeight-200
     };
+
+
+    changeInputBoxTop($self, topDistanceInputHeight, showMoreFuns) {
+
+    }
+
 
     componentDidMount() {
         let $self = this;
-        layout($self.refs.inputTextRef).then(function (result) {
-            $self.setState({
-                inputTextViewLayoutHeight: result.height
-            })
-        });
-
-        this.textInputLayoutChange = DeviceEventEmitter.addListener('textInputLayoutChange', function (result) {
-            console.log(result)
+        setTimeout(function () {
+            layout($self.refs.inputBox).then(function (result) {
+                let inputBoxViewHeight = result.height;
+                $self.setState({
+                    inputBoxViewHeight,
+                    inputBoxTop: Layout.window.nbarHeight - inputBoxViewHeight
+                });
+                setTimeout(function () {
+                    $self.setState({
+                        inputBoxShow: true,//first show
+                    })
+                })
+            });
+            layout($self.refs.openMoreView).then(function (result) {
+                let openMoreViewHeight = result.height;
+                $self.setState({
+                    openMoreViewHeight
+                });
+            });
         });
     }
 
@@ -66,6 +89,7 @@ export default class ChatInput extends React.Component {
     }
 
     componentWillMount() {
+
         this.keyboardDidShowListener = Keyboard.addListener('keyboardWillShow', this._keyboardDidShow.bind(this));
         this.keyboardDidHideListener = Keyboard.addListener('keyboardWillHide', this._keyboardDidHide.bind(this));
     }
@@ -73,14 +97,14 @@ export default class ChatInput extends React.Component {
     _keyboardDidShow(e) {
         this.setState({
             keyboardHeight: e.endCoordinates.height,
-            inputBoxTop: Layout.window.height - textInputViewHeight - navBarHeight - e.endCoordinates.height
+            inputBoxTop: Layout.window.nbarHeight - this.state.inputBoxViewHeight - e.endCoordinates.height + (this.state.openMoreFunctions===false?this.state.openMoreViewHeight:0)
         })
     }
 
     _keyboardDidHide(e) {
         this.setState({
             keyboardHeight: 0,
-            inputBoxTop: Layout.window.height - textInputViewHeight - navBarHeight
+            inputBoxTop: Layout.window.nbarHeight - this.state.inputBoxViewHeight + (this.state.openMoreFunctions===false?this.state.openMoreViewHeight:0)
         })
     }
 
@@ -88,6 +112,11 @@ export default class ChatInput extends React.Component {
         if (textInputLayoutHeightPrev === 0) {
             textInputLayoutHeightPrev = viewHeight;
             return false
+        }
+        if (viewHeight === textInputLayoutHeightPrev) {
+            return false
+        } else {
+            textInputLayoutHeightPrev = viewHeight;
         }
         if (viewHeight > textInputLayoutHeightPrev) {
             if (viewHeight - textInputLayoutHeightPrev < 9) {
@@ -103,7 +132,7 @@ export default class ChatInput extends React.Component {
 
     onChangeText = (text) => {
         let value = undefined;
-        if(text.trim().length!==0){
+        if (text.trim().length !== 0) {
             value = text.trim();
         }
         this.setState({
@@ -112,42 +141,70 @@ export default class ChatInput extends React.Component {
 
     };
 
-    inputOnLayout = (event) => {
-        //keyboard type text have change view height
-        // var viewWidth = event.nativeEvent.layout.width;
-        var viewHeight = event.nativeEvent.layout.height;
+    openMore = () => {
+        let $self = this;
 
-        if (this.checkTextInputDithering(viewHeight)) {
-            this.setState({
-                inputBoxTop: Layout.window.height - textInputHeight - navBarHeight - this.state.keyboardHeight - viewHeight
+        if ($self.state.openMoreFunctions === false) {//open funs
+            layout($self.refs.inputBox).then(function (result) {
+                let inputBoxViewHeight = result.height;
+                $self.setState({
+                    inputBoxViewHeight,
+                    openMoreFunctions: true,
+                    inputBoxTop: Layout.window.nbarHeight - inputBoxViewHeight
+                })
+            });
+        } else {//close funs
+            $self.setState({
+                openMoreFunctions: false,
+                inputBoxTop: Layout.window.nbarHeight -  this.state.inputBoxViewHeight + (this.state.openMoreFunctions?this.state.openMoreViewHeight:0)
             })
         }
     };
 
+    inputBoxOnLayout = (event) => {
+        //keyboard type text have change view height
+        let inputBoxViewHeight = event.nativeEvent.layout.height;
+        if (this.checkTextInputDithering(inputBoxViewHeight)) {
+            this.setState({
+                inputBoxViewHeight,
+                inputBoxTop: Layout.window.nbarHeight - inputBoxViewHeight - this.state.keyboardHeight  + (this.state.openMoreFunctions===false?this.state.openMoreViewHeight:0)
+            })
+        }
+    };
+
+    testBlur(){
+        this.refs.inputTextRef.blur();
+    }
+
     render() {
         const $self = this;
         return (
-            <View
+            <KeyboardAvoidingView
                 ref="inputBox"
-                style={[styles.container, {top: this.state.inputBoxTop}]}
+                fixDoubleTapIssue={true}
+                onLayout={this.inputBoxOnLayout}
+                style={[styles.container, {
+                    opacity: this.state.inputBoxShow ? 1 : 0,
+                    top: isDevModule ? 100 : this.state.inputBoxTop
+                }]}
             >
                 <View
                     style={styles.inputView}
                 >
                     <View style={{flex: 1, flexDirection: 'row'}}>
-                        <View
+                        <ScrollView
+                            keyboardShouldPersistTaps="handled"
                             style={styles.inputTextView}
                         >
                             <TextInput
                                 ref="inputTextRef"
-                                onLayout={this.inputOnLayout}
                                 onChangeText={this.onChangeText}
                                 multiline={true}
                                 numberOfLines={4}
-                                style={[styles.inputText]}
+                                style={styles.inputText}
                                 placeholder="请输入..."
                             />
-                        </View>
+                        </ScrollView>
                     </View>
                     <View style={styles.translateView}>
                         <TouchableOpacity
@@ -173,6 +230,7 @@ export default class ChatInput extends React.Component {
                                 style={styles.chatBottomBarViewItem}
                             >
                                 <TouchableOpacity
+                                    onPress={this.openMore}
                                 >
                                     <Svg icon="addcircle" size="24" color="#656565"/>
                                 </TouchableOpacity>
@@ -220,8 +278,6 @@ export default class ChatInput extends React.Component {
                                 </TouchableOpacity>
                             </View>
                         </View>
-
-
                     </View>
                     <View style={styles.voiceView}>
                         <View
@@ -231,14 +287,80 @@ export default class ChatInput extends React.Component {
                                 $self.state.inputText && <Svg icon="send" size="24" color="#425FD0"/>
                             }
                             {
-                                $self.state.inputText===undefined && <Svg icon="voice" size="24" color="#656565"/>
+                                $self.state.inputText === undefined && <Svg icon="voice" size="24" color="#656565"/>
                             }
 
                         </View>
                     </View>
-
                 </View>
-            </View>
+                <View ref="openMoreView" style={[styles.moreView, {opacity: this.state.openMoreFunctions ? 1 : 0}]}>
+                    <View
+                        style={styles.moreViewRow}
+                    >
+                        <View style={styles.moreViewRowItem}>
+                            <View style={styles.moreViewRowItemIcon}>
+                                <Svg icon="chat" size="34" color="#626262"/>
+                            </View>
+                            <View style={styles.moreViewRowItemTextView}>
+                                <Text style={styles.moreViewRowItemText}>通话</Text>
+                            </View>
+                        </View>
+                        <View style={styles.moreViewRowItem}>
+                            <View style={styles.moreViewRowItemIcon}>
+                                <Svg icon="chat" size="34" color="#626262"/>
+                            </View>
+                            <View style={styles.moreViewRowItemTextView}>
+                                <Text style={styles.moreViewRowItemText}>通话功能</Text>
+                            </View>
+                        </View>
+                        <View style={styles.moreViewRowItem}>
+                            <View style={styles.moreViewRowItemIcon}>
+                                <Svg icon="chat" size="34" color="#626262"/>
+                            </View>
+                            <View style={styles.moreViewRowItemTextView}>
+                                <Text style={styles.moreViewRowItemText}>通话功能</Text>
+                            </View>
+                        </View>
+                        <View style={styles.moreViewRowItem}>
+                            <View style={styles.moreViewRowItemIcon}>
+                                <Svg icon="chat" size="34" color="#626262"/>
+                            </View>
+                            <View style={styles.moreViewRowItemTextView}>
+                                <Text style={styles.moreViewRowItemText}>通话功能</Text>
+                            </View>
+                        </View>
+                    </View>
+                    <View
+                        style={styles.moreViewRow}
+                    >
+                        <View style={styles.moreViewRowItem}>
+                            <View style={styles.moreViewRowItemIcon}>
+                                <Svg icon="chat" size="34" color="#626262"/>
+                            </View>
+                            <View style={styles.moreViewRowItemTextView}>
+                                <Text style={styles.moreViewRowItemText}>通话</Text>
+                            </View>
+                        </View>
+                        <View style={styles.moreViewRowItem}>
+                            <View style={styles.moreViewRowItemIcon}>
+                                <Svg icon="chat" size="34" color="#626262"/>
+                            </View>
+                            <View style={styles.moreViewRowItemTextView}>
+                                <Text style={styles.moreViewRowItemText}>通话功能</Text>
+                            </View>
+                        </View>
+                        <View style={styles.moreViewRowItem}>
+                            <View style={styles.moreViewRowItemIcon}>
+                                <Svg icon="chat" size="34" color="#626262"/>
+                            </View>
+                            <View style={styles.moreViewRowItemTextView}>
+                                <Text style={styles.moreViewRowItemText}>通话功能</Text>
+                            </View>
+                        </View>
+                        <View style={styles.moreViewRowItem}></View>
+                    </View>
+                </View>
+            </KeyboardAvoidingView>
         )
     }
 }
@@ -303,5 +425,33 @@ const styles = StyleSheet.create({
     },
     voiceView: {
         marginRight: 8
+    },
+    moreView: {
+        flex: 1,
+        borderTopColor: '#CCC',
+        borderTopWidth: 1,
+        flexDirection: 'column',
+        paddingBottom: 10
+    },
+    moreViewRow: {
+        flex: 1,
+        flexDirection: 'row',
+        marginTop: 10,
+    },
+    moreViewRowItem: {
+        flex: 1,
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    moreViewRowItemIcon: {
+        // marginTop:10,
+    },
+    moreViewRowItemTextView: {
+        marginTop: 2,
+    },
+    moreViewRowItemText: {
+        fontSize: 12,
+        color: '#787878'
     }
 });

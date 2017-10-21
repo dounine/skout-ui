@@ -54,7 +54,10 @@ const MineNaviator = StackNavigator(
         },
     },
     {
-        initialRouteName:'ProfileList'
+        initialRouteName:'ProfileList',
+        navigationOptions:{
+            headerStyle:{height: 64},
+        }
     }
 );
 

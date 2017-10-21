@@ -25,7 +25,7 @@ export default class ChatScreen extends Component {
     static navigationOptions = ({navigation})=>({
         header: null,
         tabBarLabel: '聊天',
-        tabBarVisible: checkTabBarVisible(navigation.state.params),
+        tabBarVisible: false,//checkTabBarVisible(navigation.state.params),
         tabBarIcon: ({tintColor}) => {
             return (
                 <Svg icon="chat" size="26" color="#929292" style={styles.icon}/>

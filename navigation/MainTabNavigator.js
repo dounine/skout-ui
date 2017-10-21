@@ -30,5 +30,8 @@ export default TabNavigator(
         animationEnabled: false,
         headerMode: 'none',
         swipeEnabled: false,
+        navigationOptions:{
+            headerStyle:{height: 64},
+        }
     }
 );
