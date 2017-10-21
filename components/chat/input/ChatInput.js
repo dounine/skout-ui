@@ -101,12 +101,23 @@ export default class ChatInput extends React.Component {
         return true;
     };
 
+    onChangeText = (text) => {
+        let value = undefined;
+        if(text.trim().length!==0){
+            value = text.trim();
+        }
+        this.setState({
+            inputText: value
+        });
+
+    };
+
     inputOnLayout = (event) => {
         //keyboard type text have change view height
         // var viewWidth = event.nativeEvent.layout.width;
         var viewHeight = event.nativeEvent.layout.height;
 
-        if(this.checkTextInputDithering(viewHeight)){
+        if (this.checkTextInputDithering(viewHeight)) {
             this.setState({
                 inputBoxTop: Layout.window.height - textInputHeight - navBarHeight - this.state.keyboardHeight - viewHeight
             })
@@ -114,6 +125,7 @@ export default class ChatInput extends React.Component {
     };
 
     render() {
+        const $self = this;
         return (
             <View
                 ref="inputBox"
@@ -129,6 +141,7 @@ export default class ChatInput extends React.Component {
                             <TextInput
                                 ref="inputTextRef"
                                 onLayout={this.inputOnLayout}
+                                onChangeText={this.onChangeText}
                                 multiline={true}
                                 numberOfLines={4}
                                 style={[styles.inputText]}
@@ -214,10 +227,13 @@ export default class ChatInput extends React.Component {
                         <View
                             style={styles.chatBottomBarViewItem}
                         >
-                            <TouchableOpacity
-                            >
-                                <Svg icon="voice" size="24" color="#656565"/>
-                            </TouchableOpacity>
+                            {
+                                $self.state.inputText && <Svg icon="send" size="24" color="#425FD0"/>
+                            }
+                            {
+                                $self.state.inputText===undefined && <Svg icon="voice" size="24" color="#656565"/>
+                            }
+
                         </View>
                     </View>
 
