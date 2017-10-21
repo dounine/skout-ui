@@ -34,13 +34,15 @@ export default class ChatScreen extends Component {
     });
 
     navigationStateChange = (prevState, newState, action) => {
-        let visible = 'Messages' === getCurrentRouteName(newState);
-        if (this.props.navigation.params !== visible) {
-            this.props.navigation.setParams({
-                tabBarVisible: !visible
-            });
-        }
-    }
+        setTimeout(function () {
+            let visible = 'Messages' === getCurrentRouteName(newState);
+            if (this.props.navigation.params !== visible) {
+                this.props.navigation.setParams({
+                    tabBarVisible: !visible
+                });
+            }
+        }.bind(this));
+    };
 
     render() {
         return (

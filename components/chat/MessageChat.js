@@ -39,13 +39,14 @@ export default class MessageContainer extends React.Component {
                 style={{backgroundColor: '#F7F7FB'}}
             >
                 <View>
-                    <TheyMsg/>
-                    <MineMsg />
-                    <TimeDivide value="2017-02-10 10:10"/>
-                </View>
-                <View>
+                    <View>
+                        <TheyMsg/>
+                        <MineMsg />
+                        <TimeDivide value="2017-02-10 10:10"/>
+                    </View>
                     <ChatInput/>
                 </View>
+
             </ScrollView>
         )
     }
