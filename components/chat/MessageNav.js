@@ -1,10 +1,9 @@
 import React from 'react';
-import {StackNavigator} from 'react-navigation';
+import {StackNavigator,NavigationActions} from 'react-navigation';
 import Messages from './Messages';
 import MessageChat from './MessageChat';
 import Profile from './profile/Profile';
-
-const navigation = StackNavigator({
+export default StackNavigator({
     Messages: {
         screen: Messages
     },
@@ -17,5 +16,3 @@ const navigation = StackNavigator({
 }, {
     initialRouteName: 'Messages'
 });
-
-export default navigation;

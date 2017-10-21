@@ -6,6 +6,7 @@ import TheyMsg from './msg/They';
 import MineMsg from './msg/Mine';
 import TimeDivide from './msg/ChatTimeDivide';
 import ChatSettings from './profile/Settings';
+import ChatInput from './input/ChatInput';
 
 
 export default class MessageContainer extends React.Component {
@@ -24,7 +25,7 @@ export default class MessageContainer extends React.Component {
 
     _onRefresh = () => {
 
-    }
+    };
 
     render() {
         return (
@@ -37,9 +38,14 @@ export default class MessageContainer extends React.Component {
                 }
                 style={{backgroundColor: '#F7F7FB'}}
             >
-                <TheyMsg/>
-                <MineMsg />
-                <TimeDivide value="2017-02-10 10:10"/>
+                <View>
+                    <TheyMsg/>
+                    <MineMsg />
+                    <TimeDivide value="2017-02-10 10:10"/>
+                </View>
+                <View>
+                    <ChatInput/>
+                </View>
             </ScrollView>
         )
     }

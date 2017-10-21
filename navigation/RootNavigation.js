@@ -2,26 +2,14 @@ import React from 'react';
 import {StackNavigator} from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import MessageNav from '../components/chat/MessageNav';
+import {TabNavigator, TabBarBottom} from 'react-navigation';
+import {ChatScreen,Text, MeetScreen, InterestScreen, DynamicScreen, MineScreen} from '../screens/Screens';
 
-const RootStackNavigator = StackNavigator(
+export default StackNavigator(
     {
         Main: {
             screen: MainTabNavigator
         }
-    }, {
-        navigationOptions: ()=> ({
-            headerTitleStyle: {
-                fontWeight: 'normal',
-            },
-        })
     }
 );
-
-
-export default class RootNavigator extends React.Component {
-
-    render() {
-        return <RootStackNavigator/>;
-    }
-
-}

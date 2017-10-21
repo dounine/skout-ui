@@ -24,17 +24,11 @@ export default TabNavigator(
         },
     },
     {
-        initialRouteName:'Chat',
+        initialRouteName: 'Chat',
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
         animationEnabled: false,
+        headerMode: 'none',
         swipeEnabled: false,
     }
-)
-
-const styles = StyleSheet.create({
-    icon: {
-        width: 24,
-        height: 24
-    }
-});
+);

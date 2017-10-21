@@ -1,34 +1,52 @@
 import React from 'react';
-import {StyleSheet,View,ScrollView,Text,RefreshControl} from 'react-native';
+import {StyleSheet, View, ScrollView, Text, RefreshControl} from 'react-native';
 import Notification from './Notification';
 import Svg from '../../icons/Svg';
 import MessageItem from './MessageItem';
 
-export default class Messages extends React.Component{
 
-    static navigationOptions = {
+function tabBarVisible(screenProps) {
+    setTimeout(function () {
+        screenProps.rootNavigation.setParams({
+            tabBarVisible: true
+        })
+    });
+    return ''
+}
+
+export default class Messages extends React.Component {
+
+    static navigationOptions = ({navigation, screenProps})=>({
         // header: null,
         title: '聊天',
-        headerRight: (<Notification/>),
-        tabBarIcon: ({tintColor}) => {
-            return (
-                <Svg icon="chat" size="26" color="#929292" style={styles.icon}/>
-            )
-        }
-    };
+        headerRight: <Notification/>
+    });
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
-            refreshing:false
+            refreshing: false
         }
     }
 
-    _onRefresh = () =>{
+    componentDidMount = () => {
 
-    }
+    };
 
-    render(){
+    closeRootTab = (close) => {
+        const cclose = close || true;
+        setTimeout(function () {
+            this.props.screenProps.rootNavigation.setParams({
+                tabBarVisible: cclose
+            })
+        }.bind(this));
+    };
+
+    _onRefresh = () => {
+
+    };
+
+    render() {
         return (
             <ScrollView
                 refreshControl={
@@ -39,9 +57,9 @@ export default class Messages extends React.Component{
                 }
                 style={styles.container}
             >
-                <MessageItem navigation={this.props.navigation}/>
-                <MessageItem navigation={this.props.navigation} />
-                <MessageItem navigation={this.props.navigation} />
+                <MessageItem closeRootTab={this.closeRootTab} navigation={this.props.navigation}/>
+                <MessageItem closeRootTab={this.closeRootTab} navigation={this.props.navigation}/>
+                <MessageItem closeRootTab={this.closeRootTab} navigation={this.props.navigation}/>
             </ScrollView>
         )
     }
@@ -49,8 +67,8 @@ export default class Messages extends React.Component{
 
 
 const styles = StyleSheet.create({
-    container:{
-        flex:1,
-        backgroundColor:'#F4F4F4'
+    container: {
+        flex: 1,
+        backgroundColor: '#F4F4F4'
     }
 });
