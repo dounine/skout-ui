@@ -29,25 +29,25 @@ export default class MessageContainer extends React.Component {
 
     render() {
         return (
-            <ScrollView
-                refreshControl={
-                    <RefreshControl
-                        refreshing={this.state.refreshing}
-                        onRefresh={this._onRefresh.bind(this)}
-                    />
-                }
+            <View
                 style={{backgroundColor: '#F7F7FB'}}
             >
                 <View>
-                    <View>
+                    <ScrollView
+                        refreshControl={
+                            <RefreshControl
+                                refreshing={this.state.refreshing}
+                                onRefresh={this._onRefresh.bind(this)}
+                            />
+                        }
+                    >
                         <TheyMsg/>
                         <MineMsg />
                         <TimeDivide value="2017-02-10 10:10"/>
-                    </View>
-                    <ChatInput/>
+                    </ScrollView>
                 </View>
-
-            </ScrollView>
+                <ChatInput/>
+            </View>
         )
     }
 }

@@ -180,6 +180,7 @@ export default class ChatInput extends React.Component {
         const $self = this;
         return (
             <KeyboardAvoidingView
+                behavior="padding"
                 ref="inputBox"
                 fixDoubleTapIssue={true}
                 onLayout={this.inputBoxOnLayout}
