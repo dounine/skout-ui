@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {Platform} from 'react-native';
 
 const Style = {
     clone:function () {
@@ -7,7 +8,15 @@ const Style = {
     theyAreBoxView: {
         flex: 1,
         backgroundColor: '#F7F7FB',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        ...Platform.select({
+            ios: {
+                //ios下显示的样式
+            },
+            android: {
+                //android下显示的样式
+            },
+        }),
     },
     theyAreHandView: {
         marginLeft: 10
@@ -34,9 +43,8 @@ const Style = {
     theyAreMsgContent: {},
     theyAreMsgIconView: {
         flex: 1,
-        marginLeft: 2,
-        marginRight: 2,
         justifyContent: 'center',
+        marginHorizontal:2
 
     },
     coverIcon: {
@@ -51,8 +59,7 @@ const Style = {
     translateViewDivide: {
         height: 1,
         backgroundColor: '#F0F0F0',
-        marginTop: 10,
-        marginBottom: 10
+        marginVertical:10
     },
     translateView: {
         flex: 1,

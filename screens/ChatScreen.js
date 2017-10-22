@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, Button, View, Text, StyleSheet} from 'react-native';
-import Svg from '../icons/Svg';
 
 import MessageContainer from '../components/chat/MessageNav';
-import {StackNavigator} from 'react-navigation';
 
 function getCurrentRouteName(navigationState) {
     if (!navigationState) {
@@ -23,31 +21,21 @@ function checkTabBarVisible(params) {
 export default class ChatScreen extends Component {
 
     static navigationOptions = ({navigation})=>({
-        header: null,
-        tabBarLabel: '聊天',
-        tabBarVisible: false,//checkTabBarVisible(navigation.state.params),
-        tabBarIcon: ({tintColor}) => {
-            return (
-                <Svg icon="chat" size="26" color="#929292" style={styles.icon}/>
-            )
-        }
+        tabBarVisible: checkTabBarVisible(navigation.state.params),
     });
 
     navigationStateChange = (prevState, newState, action) => {
-        setTimeout(function () {
-            let visible = 'Messages' === getCurrentRouteName(newState);
-            if (this.props.navigation.params !== visible) {
-                this.props.navigation.setParams({
-                    tabBarVisible: !visible
-                });
-            }
-        }.bind(this));
+        let visible = 'Messages' === getCurrentRouteName(newState);
+        if (this.props.navigation.params !== visible) {
+            this.props.navigation.setParams({
+                tabBarVisible: !visible
+            });
+        }
     };
 
     render() {
         return (
-            <MessageContainer onNavigationStateChange={this.navigationStateChange}
-                              screenProps={{rootNavigation: this.props.navigation}}/>
+            <MessageContainer onNavigationStateChange={this.navigationStateChange}/>
         )
     }
 }
@@ -57,9 +45,5 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center'
-    },
-    icon: {
-        width: 30,
-        height: 30,
     }
 });

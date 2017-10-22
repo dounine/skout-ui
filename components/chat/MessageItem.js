@@ -17,7 +17,6 @@ const swipeoutBtns = [
 export default class MessageItem extends React.Component {
 
     onOpen = () => {
-        // this.props.closeRootTab()
         this.props.navigation.navigate('MessageChat')
     };
 

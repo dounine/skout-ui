@@ -1,15 +1,15 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
-import {ScrollView, RefreshControl, StyleSheet, View, Text, Image} from 'react-native';
+import {DeviceEventEmitter,ScrollView, RefreshControl, StyleSheet, View, Text, Image} from 'react-native';
 import Svg from '../../icons/Svg';
 import TheyMsg from './msg/They';
 import MineMsg from './msg/Mine';
 import TimeDivide from './msg/ChatTimeDivide';
 import ChatSettings from './profile/Settings';
 import ChatInput from './input/ChatInput';
+import Emitters from '../../constants/Emitters';
 
-
-export default class MessageContainer extends React.Component {
+export default class MessageChat extends React.Component {
 
     static navigationOptions = ({
         navigation,
@@ -22,6 +22,17 @@ export default class MessageContainer extends React.Component {
     state = {
         refreshing: false
     };
+
+    componentDidMount (){
+        let $self = this;
+        this.switchTranslate = Emitters.DEM.addListener(Emitters.SWITCH_TRANSLATE,function (result) {
+            $self.props.navigation.navigate('Translate')
+        });
+    };
+
+    componentWillUnmount (){
+        this.switchTranslate.remove();
+    }
 
     _onRefresh = () => {
 

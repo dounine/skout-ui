@@ -80,7 +80,8 @@ const styles = StyleSheet.create({
     theyAreHandImage: {
         width: 30,
         height: 30,
-        borderRadius: 4
+        borderRadius: 4,
+        resizeMode:'center'
     },
     theyAreMsgView: {
         flex: 1,

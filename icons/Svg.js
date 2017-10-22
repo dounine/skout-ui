@@ -15,7 +15,7 @@ class Svg extends Component {
         let svgXmlData = svgs[this.props.icon];
 
         if (this.props.icon === undefined) {
-            throw new Error(`icon属性不能为空`)
+            throw new Error('icon属性不能为空')
         }
         if (!svgXmlData) {
             let err_msg = `没有"${this.props.icon}"这个icon`;

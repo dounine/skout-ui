@@ -16,7 +16,7 @@ class ReturnButton extends React.Component {
                 style={styles.container}
             >
                 <View>
-                    <Svg icon="return" size="26" color="#177EFB"/>
+                    <Svg icon="return" size="30" color="#177EFB"/>
                     {this.props.text && <Text style={{color: '#177EFB'}}>hello</Text>}
                 </View>
             </TouchableOpacity>
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     container: {
         height: 26,
         flexDirection: 'row',
-        marginLeft: 8,
+        marginLeft: 2,
         alignItems: 'center',
     }
 });

@@ -4,16 +4,6 @@ import Svg from '../icons/Svg';
 
 export default class DynamicScreen extends Component{
 
-    static navigationOptions = {
-        header: null,
-        tabBarLabel:'动态',
-        tabBarIcon: ({tintColor}) => {
-            return (
-                <Svg icon="dynamic" size="26" color="#929292" style={styles.icon}/>
-            )
-        }
-    };
-
     render(){
         return (
             <View style={styles.container}>
@@ -28,9 +18,5 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center'
-    },
-    icon:{
-        width:28,
-        height:28
     }
 });

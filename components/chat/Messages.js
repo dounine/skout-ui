@@ -33,15 +33,6 @@ export default class Messages extends React.Component {
 
     };
 
-    closeRootTab = (close) => {
-        const cclose = close || true;
-        setTimeout(function () {
-            this.props.screenProps.rootNavigation.setParams({
-                tabBarVisible: cclose
-            })
-        }.bind(this));
-    };
-
     _onRefresh = () => {
 
     };
@@ -57,9 +48,9 @@ export default class Messages extends React.Component {
                 }
                 style={styles.container}
             >
-                <MessageItem closeRootTab={this.closeRootTab} navigation={this.props.navigation}/>
-                <MessageItem closeRootTab={this.closeRootTab} navigation={this.props.navigation}/>
-                <MessageItem closeRootTab={this.closeRootTab} navigation={this.props.navigation}/>
+                <MessageItem navigation={this.props.navigation}/>
+                <MessageItem navigation={this.props.navigation}/>
+                <MessageItem navigation={this.props.navigation}/>
             </ScrollView>
         )
     }

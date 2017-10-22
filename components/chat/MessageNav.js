@@ -1,8 +1,14 @@
 import React from 'react';
-import {StackNavigator,NavigationActions} from 'react-navigation';
+import {
+    StackNavigator,
+    NavigationActions,
+    DeviceEventEmitter,
+} from 'react-navigation';
 import Messages from './Messages';
 import MessageChat from './MessageChat';
 import Profile from './profile/Profile';
+import Translate from './translate/Translate';
+
 export default StackNavigator({
     Messages: {
         screen: Messages
@@ -12,10 +18,13 @@ export default StackNavigator({
     },
     Profile: {
         screen: Profile
+    },
+    Translate: {
+        screen: Translate
     }
 }, {
-    initialRouteName: 'MessageChat',
-    navigationOptions:{
-        headerStyle:{height: 64},
+    initialRouteName: 'Messages',
+    navigationOptions: {
+        headerStyle: {height: 64},
     }
 });

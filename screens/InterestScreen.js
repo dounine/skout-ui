@@ -4,16 +4,6 @@ import Svg from '../icons/Svg';
 
 export default class InterestScreen extends Component{
 
-    static navigationOptions = {
-        header: null,
-        tabBarLabel:'感兴趣',
-        tabBarIcon: ({tintColor}) => {
-            return (
-                <Svg icon="interest" size="26" color="#929292" style={styles.icon}/>
-            )
-        }
-    };
-
     render(){
         return (
             <View style={styles.container}>

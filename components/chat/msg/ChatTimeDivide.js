@@ -26,19 +26,16 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
-        marginTop:10,
-        marginBottom:10
+        marginVertical:10
     },
     chatTimeText: {
         backgroundColor: '#ACACAF',
         color: '#FDFDFD',
-        paddingLeft: 6,
-        paddingRight: 6,
-        paddingTop: 2,
-        paddingBottom: 2,
         fontSize: 12,
         borderRadius: 9,
-        overflow: 'hidden'
+        overflow: 'hidden',
+        paddingHorizontal:6,
+        paddingVertical:2
     },
 });
 

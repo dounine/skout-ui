@@ -5,16 +5,6 @@ import Svg from '../icons/Svg';
 
 export default class MineScreen extends Component{
 
-    static navigationOptions = {
-        header: null,
-        tabBarLabel:'我的',
-        tabBarIcon: ({tintColor}) => {
-            return (
-                <Svg icon="mine" size="26" color="#929292" style={styles.icon}/>
-            )
-        }
-    };
-
     render(){
         return (
             <View style={styles.container}>
@@ -27,11 +17,5 @@ export default class MineScreen extends Component{
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        // justifyContent:'center',
-        // alignItems:'center'
     },
-    icon:{
-        width:28,
-        height:28
-    }
 });

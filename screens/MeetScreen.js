@@ -4,16 +4,6 @@ import Svg from '../icons/Svg';
 
 export default class MeetScreen extends Component{
 
-    static navigationOptions = {
-        header: null,
-        tabBarLabel:'遇见',
-        tabBarIcon: ({tintColor}) => {
-            return (
-                <Svg icon="meet" size="26" color="#929292" style={styles.icon}/>
-            )
-        }
-    };
-
     render(){
         return (
             <View style={styles.container}>
@@ -29,8 +19,4 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems:'center'
     },
-    icon:{
-        width:28,
-        height:28
-    }
 });
