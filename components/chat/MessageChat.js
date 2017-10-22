@@ -30,9 +30,15 @@ export default class MessageContainer extends React.Component {
     render() {
         return (
             <View
-                style={{backgroundColor: '#F7F7FB'}}
+                style={{
+                    flex:1,
+                    backgroundColor: '#F7F7FB'}}
             >
-                <View>
+                <View
+                    style={{
+                        flex:1
+                    }}
+                >
                     <ScrollView
                         refreshControl={
                             <RefreshControl
@@ -46,7 +52,9 @@ export default class MessageContainer extends React.Component {
                         <TimeDivide value="2017-02-10 10:10"/>
                     </ScrollView>
                 </View>
-                <ChatInput/>
+                <View>
+                    <ChatInput/>
+                </View>
             </View>
         )
     }
