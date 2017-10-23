@@ -7,7 +7,7 @@ export default class Profile extends React.Component{
 
     static navigationOptions = ({navigation}) =>({
         headerTitle: '聊天设置',
-        headerLeft: (<ReturnButton navigation={navigation}/>)
+        headerLeft: (<ReturnButton text="聊天" navigation={navigation}/>)
     });
 
     render(){

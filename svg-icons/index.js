@@ -10,13 +10,9 @@ import Svg,{
     G ,
     LinearGradient,
     RadialGradient,
-    Line,
     Path,
     Polygon,
-    Polyline,
     Rect,
-    Symbol,
-    Use,
     Defs,
     Stop
 } from 'react-native-svg';

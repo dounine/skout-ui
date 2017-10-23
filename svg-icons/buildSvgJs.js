@@ -32,6 +32,21 @@ watch.watchTree('/Users/huanghuanlai/dounine/github/skout-ui/icons/svgs', (pp) =
     console.log('文件有变化')
     readSvgs().then(data => {
         let svgFile = 'export default ' + JSON.stringify(Object.assign.apply(this, data));
+        let names = [];
+        for(var index = 0;index<data.length;index++){
+            for(var name in data[index]){
+                if(name!==""){
+                    names.push('"'+name+'":"'+name+'"');
+                }
+            }
+        }
+        fs.writeFile(path.resolve(__dirname, '../icons/Names.js'), 'export default {'+names.join(',')+'}', function (err) {
+            if (err) {
+                throw new Error(err)
+            } else {
+                // a('success')
+            }
+        })
         return fs.writeFile(path.resolve(__dirname, '../icons/svgs.js'), svgFile, function (err) {
             if (err) {
                 throw new Error(err)

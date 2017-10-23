@@ -15,9 +15,15 @@ class ReturnButton extends React.Component {
                 onPress={this.onReturn}
                 style={styles.container}
             >
-                <View>
-                    <Svg icon="return" size="30" color="#177EFB"/>
-                    {this.props.text && <Text style={{color: '#177EFB'}}>hello</Text>}
+                <View
+                    style={styles.returnView}
+                >
+                    <View>
+                        <Svg icon="return" size="30" style={styles.icon} color="#177EFB"/>
+                    </View>
+                    <View>
+                        {this.props.text && <Text style={styles.returnText}>{this.props.text}</Text>}
+                    </View>
                 </View>
             </TouchableOpacity>
         )
@@ -33,5 +39,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginLeft: 2,
         alignItems: 'center',
+    },
+    icon:{
+        width:26,
+        height:30,
+    },
+    returnView:{
+        flex:1,
+        flexDirection:'row',
+        alignItems:'center'
+    },
+    returnText:{
+        fontSize:17,
+        color: '#177EFB'
     }
 });
