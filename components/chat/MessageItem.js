@@ -1,8 +1,8 @@
 import React from 'react';
 import {TouchableHighlight, StyleSheet, ImageBackground, View, Text, Image} from 'react-native';
 import Swipeout from 'react-native-swipeout';
-import Svg from '../../icons/Svg';
-import Layout from '../../constants/Layout';
+import Svg from '~/icons/Svg';
+import Layout from '~/constants/Layout';
 
 const swipeoutBtns = [
     {

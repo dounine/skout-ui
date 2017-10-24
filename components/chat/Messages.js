@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, ScrollView, Text, RefreshControl} from 'react-native';
 import Notification from './Notification';
-import Svg from '../../icons/Svg';
+import Svg from '~/icons/Svg';
 import MessageItem from './MessageItem';
 
 

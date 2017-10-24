@@ -1,13 +1,13 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
 import {DeviceEventEmitter,ScrollView, RefreshControl, StyleSheet, View, Text, Image} from 'react-native';
-import Svg from '../../icons/Svg';
+import Svg from '~/icons/Svg';
 import TheyMsg from './msg/They';
 import MineMsg from './msg/Mine';
 import TimeDivide from './msg/ChatTimeDivide';
 import ChatSettings from './profile/Settings';
 import ChatInput from './input/ChatInput';
-import Emitters from '../../constants/Emitters';
+import Emitters from '~/constants/Emitters';
 
 export default class MessageChat extends React.Component {
 

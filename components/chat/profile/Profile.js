@@ -1,7 +1,7 @@
 import React from 'react';
 import {Switch,View,ScrollView,Text} from 'react-native';
-import Svg from '../../../icons/Svg';
-import ReturnButton from '../../commons/ReturnButton';
+import Svg from '~/icons/Svg';
+import ReturnButton from '~/components/commons/ReturnButton';
 
 export default class Profile extends React.Component{
 

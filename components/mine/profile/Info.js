@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Picker,TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
 import HeaderImage from './header/HeaderImage';
-import {OpenMore} from '../../commons/Commons';
+import {OpenMore} from '~/components/commons/Commons';
 import {
     AboutMe,
     BodyType,

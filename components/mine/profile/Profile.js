@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
-import OpenMore from '../../commons/OpenMore';
+import OpenMore from '~/components/commons/OpenMore';
 
 export default class Profile extends Component {
 

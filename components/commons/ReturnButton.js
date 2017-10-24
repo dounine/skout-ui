@@ -1,7 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, View, StyleSheet, Text} from 'react-native';
 import PropTypes from 'prop-types';
-import Svg from '../../icons/Svg';
+import Svg from '~/icons/Svg';
 
 class ReturnButton extends React.Component {
 

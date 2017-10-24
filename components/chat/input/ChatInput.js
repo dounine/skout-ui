@@ -5,8 +5,6 @@ import {
     findNodeHandle,
     UIManager,
     TouchableOpacity,
-    TouchableNativeFeedback,
-    DeviceEventEmitter,
     dismissKeyboard,
     Keyboard,
     View,
@@ -14,11 +12,11 @@ import {
     StyleSheet,
     TextInput
 } from 'react-native';
-import Layout from '../../../constants/Layout';
-import Svg from '../../../icons/Svg';
+import Layout from '~/constants/Layout';
+import Svg from '~/icons/Svg';
 import OtherFuns from './OtherFuns';
 import Emoji from './Emoji';
-import Emitters from '../../../constants/Emitters';
+import Emitters from '~/constants/Emitters';
 
 function layout(ref) {
     const handle = findNodeHandle(ref);
@@ -43,23 +41,24 @@ export default class ChatInput extends React.Component {
 
     translateClick = () => {
         this.setState({
-            translateClick:true
+            translateClick: true
         });
 
-        Emitters.DEM.emit(Emitters.SWITCH_TRANSLATE,'hello guys. how are you')
+        Emitters.DEM.emit(Emitters.SWITCH_TRANSLATE, 'hello guys. how are you')
 
         setTimeout(function () {
             this.setState({
-                translateClick:false
+                translateClick: false
             });
-        }.bind(this),1000);
+        }.bind(this), 1000);
     };
 
     state = {
         keyboardHeight: 0,
         inputBoxShow: false,
         openMoreFunctions: true,
-        openEmojiFunction:false,
+        switchFun: "others",
+        openEmojiFunction: false,
         inputBoxTop: Layout.window.nbarHeight - 200
     };
 
@@ -101,14 +100,32 @@ export default class ChatInput extends React.Component {
 
     openMore = () => {
         this.setState({
-            openMoreFunctions: !this.state.openMoreFunctions,
+            switchFun:this.state.switchFun==="others"?null:"others"
         });
     };
 
-    openEmoji = () =>{
+    openEmoji = () => {
         this.setState({
-            openEmojiFunction:!this.state.openEmojiFunction
+            openEmojiFunction: !this.state.openEmojiFunction
         })
+    };
+
+    switchFun = () => {
+        switch (this.state.switchFun) {
+            case "others":
+                return <OtherFuns/>
+            case "picture":
+                return null;
+            case "camera":
+                return null;
+            case "emoji":
+                return null;
+            case "recent":
+                return null;
+            case "voice":
+                return null;
+        }
+        return <View/>
     };
 
     render() {
@@ -145,7 +162,8 @@ export default class ChatInput extends React.Component {
                                 activeOpacity={1}
                                 onPress={this.translateClick}
                             >
-                                <Svg icon="translate" size="24" color={this.state.translateClick?'#425FD0':"#646464"}/>
+                                <Svg icon="translate" size="24"
+                                     color={this.state.translateClick ? '#425FD0' : "#646464"}/>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -168,7 +186,7 @@ export default class ChatInput extends React.Component {
                                         onPress={this.openMore}
                                     >
                                         <Svg icon="addcircle" size="24"
-                                             color={this.state.openMoreFunctions ? '#425FD0' : '#656565'}/>
+                                             color={this.state.switchFun==='others' ? '#425FD0' : '#656565'}/>
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -230,8 +248,9 @@ export default class ChatInput extends React.Component {
                             </View>
                         </View>
                     </View>
-                    {this.state.openMoreFunctions && <OtherFuns/>}
-                    {this.state.openEmojiFunction && <Emoji />}
+                    {
+                        this.switchFun()
+                    }
                 </KeyboardAvoidingView>
             </View>
 
@@ -254,7 +273,7 @@ const styles = StyleSheet.create({
     },
     translateView: {
         justifyContent: 'center',
-        paddingHorizontal:8
+        paddingHorizontal: 8
     },
     inputText: {
         fontSize: 14,
@@ -279,7 +298,7 @@ const styles = StyleSheet.create({
     moreIcon: {
         justifyContent: 'center',
         alignItems: 'center',
-        marginHorizontal:2
+        marginHorizontal: 2
     },
     inputTextView: {
         flex: 1,

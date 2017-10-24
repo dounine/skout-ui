@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, Image, TouchableHighlight, View, Text} from 'react-native';
-import {OpenMore} from '../../../commons/Commons';
+import {OpenMore} from '~/components/commons/Commons';
 import FunStyles from './Consts';
-import Svg from '../../../../icons/Svg';
+import Svg from '~/icons/Svg';
 
 export default class Friends extends Component {
 

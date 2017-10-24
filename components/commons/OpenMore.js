@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Image,StyleSheet} from 'react-native';
-import Svg from '../../icons/Svg';
+import Svg from '~/icons/Svg';
 export default class OpenMore extends Component{
 
     render(){

@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
-import Svg from '../../icons/Svg';
+import Svg from '~/icons/Svg';
 
 export default class Notifications extends React.Component {
 

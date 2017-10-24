@@ -1,6 +1,6 @@
 import React from 'react';
 import {TouchableHighlight, Image, ScrollView, View, Button, StyleSheet, Text} from 'react-native';
-import Svg from '../../../../icons/Svg';
+import Svg from '~/icons/Svg';
 
 class Save extends React.Component {
 

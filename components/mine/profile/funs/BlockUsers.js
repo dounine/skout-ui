@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {StyleSheet, Image, TouchableHighlight, View, Text} from 'react-native';
-import {OpenMore} from '../../../commons/Commons';
-import Svg from '../../../../icons/Svg';
+import {OpenMore} from '~/components/commons/Commons';
+import Svg from '~/icons/Svg';
 
 
 export default class Groups extends Component {

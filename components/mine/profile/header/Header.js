@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import {OpenMore} from '../../../commons/Commons';
+import {OpenMore} from '~/components/commons/Commons';
 import HeaderImage from './HeaderImage';
 
 export default class Header extends Component {

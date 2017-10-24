@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {TouchableHighlight, ListView, ScrollView, View, Image, StyleSheet, Text} from 'react-native';
-import {OpenMore} from '../../../commons/Commons';
+import {OpenMore} from '~/components/commons/Commons';
 import ReadStyle from './Consts';
 
 export default class Interests extends Component{

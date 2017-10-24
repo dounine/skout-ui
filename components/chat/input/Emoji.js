@@ -4,7 +4,7 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-import Svg from '../../../icons/Svg';
+import Svg from '~/icons/Svg';
 
 const styles = StyleSheet.create({
 
