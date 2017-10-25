@@ -5,6 +5,10 @@ import Svg from '~/icons/Svg';
 
 export default class They extends React.Component{
 
+    state = {
+        translate:false
+    };
+
     render(){
         return (
             <View
@@ -12,7 +16,9 @@ export default class They extends React.Component{
                 <View
                     style={styles.theyAreHandView}>
                     <Image
-                        source={require('../../../test-img/Wechat1.jpeg')}
+                        source={{
+                            url:this.props.img
+                        }}
                         style={styles.theyAreHandImage}
                     ></Image>
                 </View>
@@ -24,22 +30,24 @@ export default class They extends React.Component{
                             <Text
                                 style={styles.theyAreMsgContent}
                             >
-                                Hi,Guysaasdfasdfasdfasfasfsdfasdfasfdasdfasdfasdfasdfasdfasdfasfd
-                                Hi,Guysasdfasdf
-                                Hi,Guysasdfasdf
+                                {this.props.text}
                             </Text>
                         </View>
-                        <View>
-                            <View
-                                style={styles.translateViewDivide}
-                            >
+                        {
+                            this.state.translate &&
+                            <View>
+                                <View
+                                    style={styles.translateViewDivide}
+                                >
+                                </View>
+                                <View style={styles.translateView}>
+                                    <Text style={styles.translateViewText}>
+                                        这是翻译后的结果
+                                    </Text>
+                                </View>
                             </View>
-                            <View style={styles.translateView}>
-                                <Text style={styles.translateViewText}>
-                                    这是翻译后的结果
-                                </Text>
-                            </View>
-                        </View>
+                        }
+
                     </View>
                     <View
                         style={styles.theyAreMsgIconView}
@@ -72,7 +80,8 @@ const styles = StyleSheet.create({
     theyAreBoxView: {
         flex: 1,
         backgroundColor: '#F7F7FB',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginVertical:4
     },
     theyAreHandView: {
         marginLeft: 10
@@ -80,8 +89,7 @@ const styles = StyleSheet.create({
     theyAreHandImage: {
         width: 30,
         height: 30,
-        borderRadius: 4,
-        resizeMode:'center'
+        borderRadius: 15,
     },
     theyAreMsgView: {
         flex: 1,

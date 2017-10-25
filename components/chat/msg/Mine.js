@@ -1,12 +1,16 @@
 import React from 'react';
-import {StyleSheet,View,Text,Image} from 'react-native';
+import {StyleSheet, View, Text, Image} from 'react-native';
 import Svg from '~/icons/Svg';
 import Style from './Styles';
 
 
-export default class Mine extends React.Component{
+export default class Mine extends React.Component {
 
-    render(){
+    state = {
+        translate: false
+    };
+
+    render() {
         return (
             <View
                 style={styles.mineBoxView}>
@@ -23,21 +27,24 @@ export default class Mine extends React.Component{
                             <Text
                                 style={styles.theyAreMsgContent}
                             >
-                                Hi,Guysasdfasdf
-                                Hi,Guysasdfasdf
+                                {this.props.text}
                             </Text>
                         </View>
-                        <View>
-                            <View
-                                style={styles.translateViewDivide}
-                            >
+                        {
+                            this.state.translate &&
+                            <View>
+                                <View
+                                    style={styles.translateViewDivide}
+                                >
+                                </View>
+                                <View style={styles.translateView}>
+                                    <Text style={styles.translateViewText}>
+                                        这是翻译后的结果
+                                    </Text>
+                                </View>
                             </View>
-                            <View style={styles.translateView}>
-                                <Text style={styles.translateViewText}>
-                                    这是翻译后的结果
-                                </Text>
-                            </View>
-                        </View>
+                        }
+
                     </View>
                 </View>
             </View>
@@ -51,13 +58,12 @@ styles.mineBoxView = {
     flexDirection: 'row',
     justifyContent: 'center',
     backgroundColor: '#F7F7FB',
-    paddingRight:14,
-    marginTop:10
+    paddingRight: 14,
 };
 styles.theyAreMsgIconView = {
     flex: 1,
-        justifyContent: 'center',
-        alignItems:'flex-end'
+    justifyContent: 'center',
+    alignItems: 'flex-end'
 };
 styles.theyAreMsgContentView = {
     maxWidth: 300,

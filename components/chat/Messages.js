@@ -1,31 +1,88 @@
 import React from 'react';
-import {StyleSheet, View, ScrollView, Text, RefreshControl} from 'react-native';
+import {AsyncStorage,StyleSheet, View, ScrollView, Text, RefreshControl} from 'react-native';
 import Notification from './Notification';
 import Svg from '~/icons/Svg';
 import MessageItem from './MessageItem';
+import Emitters from '~/constants/Emitters';
 
-
-function tabBarVisible(screenProps) {
-    setTimeout(function () {
-        screenProps.rootNavigation.setParams({
-            tabBarVisible: true
-        })
-    });
-    return ''
-}
 
 export default class Messages extends React.Component {
 
-    static navigationOptions = ({navigation, screenProps})=>({
+    static navigationOptions = ({navigation, screenProps}) => ({
         // header: null,
         title: '聊天',
         headerRight: <Notification/>
     });
 
+    componentWillMount() {
+        let $self = this;
+        $self.fetchMessages();
+        $self.openChatListener = Emitters.DEM.addListener(Emitters.OPEN_CHAT, function (result) {
+            $self.props.navigation.navigate('MessageChat',{fromId:result.fromId,userName:result.userName,img:result.img})
+        });
+    };
+
+    componentWillUnmount() {
+        this.openChatListener.remove();
+    };
+
     constructor() {
         super();
         this.state = {
-            refreshing: false
+            refreshing: false,
+            chats: []
+        }
+    };
+
+    fetchMessages() {
+        let $self = this;
+        const config = {
+            method: 'GET',
+            headers: { //header
+                'session_id': ''
+            },
+        };
+
+        this.readCacheChats(function (err,result) {
+            if(err){
+                alert('储存失败');
+            } else if(result) {
+                let jsonObj = JSON.parse(result)
+                $self.setState({
+                    chats: jsonObj.elements,
+                    refreshing: false
+                })
+            } else {
+                $self.setState({
+                    refreshing: true,
+                });
+                fetch('https://www.skout.com/api/1/chats?limit=20&offset=0', config)
+                    .then((response) => response.json())
+                    .then(function (response) {
+                        $self.saveChats(response)
+                        $self.setState({
+                            chats: response.elements,
+                            refreshing: false
+                        })
+                    });
+            }
+        });
+
+    }
+
+    saveChats = async (response) => {
+        try {
+            await AsyncStorage.setItem('chats',JSON.stringify(response));
+        } catch (error) {
+            // Error saving data
+        }
+    };
+
+    readCacheChats = (call) => {
+        try {
+            AsyncStorage.getItem('chats', call);
+        } catch (error) {
+            // Error saving data
         }
     }
 
@@ -38,6 +95,7 @@ export default class Messages extends React.Component {
     };
 
     render() {
+        let navigation = this.props.navigation;
         return (
             <ScrollView
                 refreshControl={
@@ -48,9 +106,11 @@ export default class Messages extends React.Component {
                 }
                 style={styles.container}
             >
-                <MessageItem navigation={this.props.navigation}/>
-                <MessageItem navigation={this.props.navigation}/>
-                <MessageItem navigation={this.props.navigation}/>
+                {
+                    this.state.chats.map(function (data) {
+                        return <MessageItem key={data.user.id} data={data} navigation={navigation}/>
+                    })
+                }
             </ScrollView>
         )
     }

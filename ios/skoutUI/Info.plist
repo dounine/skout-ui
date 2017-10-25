@@ -50,8 +50,12 @@
 	<string>允许此权限才能访问图片</string>
 	<key>Microphone Usage Description</key>
 	<string>允许此权限才能访问麦克风</string>
+	<key>LSApplicationCategoryType</key>
+	<string></string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>

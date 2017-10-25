@@ -3,6 +3,7 @@ import {TouchableHighlight, StyleSheet, ImageBackground, View, Text, Image} from
 import Swipeout from 'react-native-swipeout';
 import Svg from '~/icons/Svg';
 import Layout from '~/constants/Layout';
+import Emitters from '~/constants/Emitters';
 
 const swipeoutBtns = [
     {
@@ -16,28 +17,35 @@ const swipeoutBtns = [
 
 export default class MessageItem extends React.Component {
 
-    onOpen = () => {
-        this.props.navigation.navigate('MessageChat')
+    onOpen = (fromId,userName,img) => {
+        Emitters.DEM.emit(Emitters.OPEN_CHAT,{
+            fromId,
+            userName,
+            img
+        })
     };
 
-    componentDidMount = () =>{
+    componentDidMount = () => {
         // alert(this.props.screenProps==null)
     }
 
     render() {
+
+        const {data} = this.props;
 
         return (
             <View
 
             >
                 <Swipeout
-                    style={{backgroundColor: '#FFFFFF',
+                    style={{
+                        backgroundColor: '#FFFFFF',
                     }}
                     right={swipeoutBtns}
                 >
                     <TouchableHighlight
                         underlayColor={'#000000'}
-                        onPress={this.onOpen}
+                        onPress={()=>this.onOpen(data.last_message.from,data.user.name,data.user.image_url + '_tn50.jpg')}
                     >
                         <View style={styles.messageListBox}>
                             <View style={styles.messageListDivide}></View>
@@ -45,23 +53,28 @@ export default class MessageItem extends React.Component {
                                 <View>
                                     <View>
                                         <ImageBackground
-                                            source={require('../../test-img/WechatIMG.jpeg')}
+                                            source={{
+                                                uri: data.user.image_url + '_tn50.jpg'
+                                            }}
                                             style={styles.messageHeader}
                                         >
                                         </ImageBackground>
 
-                                        <Svg icon="point" size="18" style={styles.online}></Svg>
+                                        {
+                                            data.user.online &&
+                                            <Svg icon="point" size="18" style={styles.online}></Svg>
+                                        }
+
                                     </View>
                                 </View>
                                 <View style={styles.usernameAndMessage}>
                                     <View>
-                                        <Text style={styles.usernameText}>Alexandre</Text>
+                                        <Text style={styles.usernameText}>{data.user.name.replace(/[\r\n]/g, " ")}</Text>
                                     </View>
                                     <View>
                                         <Text
                                             numberOfLines={1}
-                                            style={styles.messageText}>how's ur morning
-                                            cocoasdfadsfasfasdfasdfasdfasdfasdfasdfasdfsf</Text>
+                                            style={styles.messageText}>{data.last_message.text}</Text>
                                     </View>
                                 </View>
                                 <View>
@@ -126,7 +139,7 @@ const styles = StyleSheet.create({
     },
     messageText: {
         color: '#A8A8A8',
-        marginRight:6
+        marginRight: 6
     },
     messageTime: {
         marginRight: 10,

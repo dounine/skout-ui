@@ -56,9 +56,10 @@ export default class ChatInput extends React.Component {
     state = {
         keyboardHeight: 0,
         inputBoxShow: false,
-        openMoreFunctions: true,
-        switchFun: "others",
+        inputText:null,
+        switchFun: null,
         openEmojiFunction: false,
+        defaultValue:'',
         inputBoxTop: Layout.window.nbarHeight - 200
     };
 
@@ -66,12 +67,23 @@ export default class ChatInput extends React.Component {
     componentWillUnmount() {
         this.keyboardDidShowListener.remove();
         this.keyboardDidHideListener.remove();
+        this.sendMessageStatus.remove();
     }
 
     componentWillMount() {
-
         this.keyboardDidShowListener = Keyboard.addListener('keyboardWillShow', this._keyboardDidShow.bind(this));
         this.keyboardDidHideListener = Keyboard.addListener('keyboardWillHide', this._keyboardDidHide.bind(this));
+        let $self = this;
+        this.sendMessageStatus = Emitters.DEM.addListener(Emitters.SEND_MESSAGE_STATUS,function (status) {
+            if(status==='success'){
+                $self.setState({
+                    inputText:null,
+                });
+            }else{
+
+            }
+
+        });
     }
 
     _keyboardDidShow(e) {
@@ -86,12 +98,21 @@ export default class ChatInput extends React.Component {
         })
     }
 
+    sendOrVoice =() =>{
+        if (this.state.inputText.length > 0) {
+            //message
+            Emitters.DEM.emit(Emitters.SEND_MESSAGE, this.state.inputText)
+        } else {
+            //voice
+        }
+    }
+
 
     onChangeText = (text) => {
-        let value = undefined;
-        if (text.trim().length !== 0) {
-            value = text.trim();
-        }
+        let value = text;
+        // if (text.trim().length !== 0) {
+        //     value = text.trim();
+        // }
         this.setState({
             inputText: value
         });
@@ -100,7 +121,7 @@ export default class ChatInput extends React.Component {
 
     openMore = () => {
         this.setState({
-            switchFun:this.state.switchFun==="others"?null:"others"
+            switchFun: this.state.switchFun === "others" ? null : "others"
         });
     };
 
@@ -152,7 +173,7 @@ export default class ChatInput extends React.Component {
                                     multiline={true}
                                     numberOfLines={4}
                                     style={styles.inputText}
-                                    defaultValue={""}
+                                    value={this.state.inputText}
                                     placeholder="请输入..."
                                 />
                             </View>
@@ -186,7 +207,7 @@ export default class ChatInput extends React.Component {
                                         onPress={this.openMore}
                                     >
                                         <Svg icon="addcircle" size="24"
-                                             color={this.state.switchFun==='others' ? '#425FD0' : '#656565'}/>
+                                             color={this.state.switchFun === 'others' ? '#425FD0' : '#656565'}/>
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -234,19 +255,25 @@ export default class ChatInput extends React.Component {
                                 </View>
                             </View>
                         </View>
-                        <View style={styles.voiceView}>
-                            <View
-                                style={styles.chatBottomBarViewItem}
-                            >
-                                {
-                                    $self.state.inputText && <Svg icon="send" size="24" color="#425FD0"/>
-                                }
-                                {
-                                    $self.state.inputText === undefined && <Svg icon="voice" size="24" color="#656565"/>
-                                }
+                        <TouchableOpacity
+                            onPress={this.sendOrVoice}
+                        >
+                            <View style={styles.voiceView}>
 
+                                <View
+                                    style={styles.chatBottomBarViewItem}
+                                >
+                                    {
+                                        $self.state.inputText && <Svg icon="send" size="24" color="#425FD0"/>
+                                    }
+                                    {
+                                        $self.state.inputText === null &&
+                                        <Svg icon="voice" size="24" color="#656565"/>
+                                    }
+                                </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
+
                     </View>
                     {
                         this.switchFun()
